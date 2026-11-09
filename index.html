@@ -1,126 +1,312 @@
-<!doctype html>
-<html lang="so">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#082b49">
-  <meta name="description" content="Galdogob General Hospital — xogta xiriirka, adeegyada caafimaadka iyo codsiga ballanta.">
-  <title>Galdogob General Hospital</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galdogob General Hospital | Your Health, Our Priority</title>
+    <meta name="description" content="Galdogob General Hospital provides professional medical care, emergency services, and maternal healthcare in Goldogob, Somalia. Caafimaadkaaga waa mudnaantayada.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="topline">
-    <div class="wrap top-inner">
-      <span><i class="pulse"></i><span data-so="Furan 24 saac • 7 maalmood" data-en="Open 24 hours • 7 days">Furan 24 saac • 7 maalmood</span></span>
-      <a href="tel:+252907791150">+252 90 779 1150</a>
+
+    <!-- Top Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-cross"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Galdogob General</h1>
+                    <span>Hospital</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav-links">
+                <a href="#home" data-en="Home" data-so="Bogga Hore">Home</a>
+                <a href="#about" data-en="About Us" data-so="Nagu Saabsan">About Us</a>
+                <a href="#services" data-en="Services" data-so="Adeegyada">Services</a>
+                <a href="#team" data-en="Team" data-so="Kooxda">Team</a>
+                <a href="#contact" data-en="Contact" data-so="Nala Soo Xiriir">Contact</a>
+            </nav>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <button id="lang-toggle" class="lang-btn" aria-label="Switch Language">Somali</button>
+                <a href="tel:+252907791150" class="btn btn-emergency">
+                    <i class="fa-solid fa-phone-volume"></i> 
+                    <span data-en="Emergency" data-so="Degdeg">Emergency</span>
+                </a>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-menu-btn" aria-label="Close Menu"><i class="fa-solid fa-times"></i></button>
+        <nav class="mobile-nav-links">
+            <a href="#home" data-en="Home" data-so="Bogga Hore">Home</a>
+            <a href="#about" data-en="About Us" data-so="Nagu Saabsan">About Us</a>
+            <a href="#services" data-en="Services" data-so="Adeegyada">Services</a>
+            <a href="#team" data-en="Team" data-so="Kooxda">Team</a>
+            <a href="#contact" data-en="Contact" data-so="Nala Soo Xiriir">Contact</a>
+            <a href="tel:+252907791150" class="btn btn-emergency mt-2">
+                <i class="fa-solid fa-phone-volume"></i> 
+                <span data-en="Emergency Call" data-so="Wicitaan Degdeg ah">Emergency Call</span>
+            </a>
+        </nav>
     </div>
-  </div>
-  <header class="header">
-    <div class="wrap nav">
-      <a class="brand" href="#home" aria-label="Galdogob General Hospital home">
-        <span class="brand-mark" aria-hidden="true"><span>+</span></span>
-        <span class="brand-name">GALDOGOB <small>GENERAL HOSPITAL</small></span>
-      </a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav id="navlinks">
-        <a href="#home" data-so="Bogga hore" data-en="Home">Bogga hore</a>
-        <a href="#about" data-so="Ku saabsan" data-en="About">Ku saabsan</a>
-        <a href="#services" data-so="Adeegyada" data-en="Services">Adeegyada</a>
-        <a href="#appointment" data-so="Ballan" data-en="Appointment">Ballan</a>
-        <a href="#contact" data-so="Xiriir" data-en="Contact">Xiriir</a>
-        <button class="lang" id="langBtn" type="button">EN</button>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-glow"></div>
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow"><span></span><span data-so="Daryeel caafimaad oo bulshada u dhow" data-en="Healthcare close to the community">Daryeel caafimaad oo bulshada u dhow</span></div>
-          <h1 data-so="Caafimaadkaaga iyo daryeelkaaga ayaa mudnaantayada ah." data-en="Your health and care are our priority.">Caafimaadkaaga iyo daryeelkaaga ayaa mudnaantayada ah.</h1>
-          <p data-so="Ku soo dhawoow Galdogob General Hospital. Halkan ka hel xogta xiriirka, adeegyada iyo habka aad codsi ballan u diri karto." data-en="Welcome to Galdogob General Hospital. Find contact information, service guidance and a simple way to request an appointment.">Ku soo dhawoow Galdogob General Hospital. Halkan ka hel xogta xiriirka, adeegyada iyo habka aad codsi ballan u diri karto.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#appointment" data-so="Codso ballan" data-en="Request an appointment">Codso ballan</a>
-            <a class="btn btn-outline" href="tel:+252907791150"><span>☎</span> <span data-so="Wac isbitaalka" data-en="Call the hospital">Wac isbitaalka</span></a>
-          </div>
-          <div class="hero-note"><span class="check">✓</span><span data-so="Xogta ballanta waxaa xaqiijinaya shaqaalaha isbitaalka." data-en="Appointment requests are confirmed by hospital staff.">Xogta ballanta waxaa xaqiijinaya shaqaalaha isbitaalka.</span></div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="reveal" data-en="Your Health, Our Priority." data-so="Caafimaadkaaga waa mudnaantayada.">Your Health, Our Priority.</h1>
+            <p class="reveal" data-en="Providing trusted, professional, and compassionate healthcare to the Goldogob community." data-so="Bixinta daryeel caafimaad oo lagu kalsoonaan karo, xirfad leh, iyo naxariis leh bulshada Goldogob.">Providing trusted, professional, and compassionate healthcare to the Goldogob community.</p>
+            <div class="hero-buttons reveal">
+                <a href="#contact" class="btn btn-primary" data-en="Contact Hospital" data-so="La Xiriir Isbitaalka">Contact Hospital</a>
+                <a href="#services" class="btn btn-secondary" data-en="Our Services" data-so="Adeegyadayada">Our Services</a>
+            </div>
         </div>
-        <div class="hero-panel">
-          <div class="panel-top"><span class="live-dot"></span><span data-so="Xogta isbitaalka" data-en="Hospital information">Xogta isbitaalka</span><span class="open-pill" data-so="24/7" data-en="24/7">24/7</span></div>
-          <div class="cross-art"><div class="cross-ring"><span>+</span></div><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="small-dot dot-a"></div><div class="small-dot dot-b"></div></div>
-          <div class="panel-bottom">
-            <div><small data-so="Goobta" data-en="Location">Goobta</small><strong>22FC+3XF, Goldogob</strong></div>
-            <div><small data-so="Telefoon" data-en="Phone">Telefoon</small><strong>+252 90 779 1150</strong></div>
-          </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container about-container">
+            <div class="about-image reveal">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop" alt="Hospital Reception Area">
+            </div>
+            <div class="about-text reveal">
+                <h2 class="section-title" data-en="About Galdogob General Hospital" data-so="Ku Saabsan Isbitaalka Guud ee Goldogob">About Galdogob General Hospital</h2>
+                <p data-en="Galdogob General Hospital is dedicated to serving the community by providing essential medical services, emergency care, and health education. Located in the heart of Goldogob, Somalia, our facility strives to offer accessible and reliable healthcare to all patients." data-so="Isbitaalka Guud ee Goldogob waxa uu u heellan yahay u adeegidda bulshada isagoo bixinaya adeegyo caafimaad oo muhiim ah, daryeel degdeg ah, iyo waxbarasho caafimaad. Oo ku yaal bartamaha Goldogob, Soomaaliya, xarunteenu waxay ku dadaashaa inay siiso dhammaan bukaannada daryeel caafimaad oo la heli karo oo lagu kalsoonaan karo.">Galdogob General Hospital is dedicated to serving the community by providing essential medical services, emergency care, and health education. Located in the heart of Goldogob, Somalia, our facility strives to offer accessible and reliable healthcare to all patients.</p>
+                <p data-en="We focus on patient-centered care, ensuring that every individual who walks through our doors is treated with dignity and respect." data-so="Waxaan diiradda saaraynaa daryeelka bukaanka, annagoo hubinayna in qof kasta oo albaabada soo galo lagu qaabilo sharaf iyo ixtiraam.">We focus on patient-centered care, ensuring that every individual who walks through our doors is treated with dignity and respect.</p>
+            </div>
         </div>
-      </div>
-      <div class="hero-wave"></div>
     </section>
 
-    <section class="quick wrap">
-      <a class="quick-card" href="tel:+252907791150"><span class="quick-icon">☎</span><span><small data-so="Nala soo xiriir" data-en="Contact us">Nala soo xiriir</small><strong data-so="+252 90 779 1150" data-en="+252 90 779 1150">+252 90 779 1150</strong></span><b>↗</b></a>
-      <a class="quick-card" href="https://wa.me/252907791150" target="_blank" rel="noopener"><span class="quick-icon">◉</span><span><small>WhatsApp</small><strong data-so="Fariin noo dir" data-en="Send a message">Fariin noo dir</strong></span><b>↗</b></a>
-      <a class="quick-card" href="https://www.google.com/maps/search/?api=1&query=22FC%2B3XF%2C%20Goldogob%2C%20Somalia" target="_blank" rel="noopener"><span class="quick-icon">⌖</span><span><small data-so="Cinwaanka" data-en="Address">Cinwaanka</small><strong data-so="Goldogob, Soomaaliya" data-en="Goldogob, Somalia">Goldogob, Soomaaliya</strong></span><b>↗</b></a>
-    </section>
+    <!-- Services Section -->
+    <section id="services" class="section bg-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title" data-en="Medical Services" data-so="Adeegyada Caafimaadka">Medical Services</h2>
+                <p data-en="Comprehensive healthcare services designed to meet the needs of our community. (Note: Some services may require confirmation or scheduling)." data-so="Adeegyo caafimaad oo dhammaystiran oo loogu talagalay in lagu daboolo baahiyaha bulshadeena. (Ogeysiis: Qaar ka mid ah adeegyada waxaa laga yaabaa inay u baahan yihiin xaqiijin ama ballan qaadasho).">Comprehensive healthcare services designed to meet the needs of our community. (Note: Some services may require confirmation).</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service Card 1 -->
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" alt="General Medical Care">
+                    <div class="service-content">
+                        <h3 data-en="General Medical Care" data-so="Daryeelka Caafimaadka Guud">General Medical Care</h3>
+                        <p data-en="Routine check-ups, treatment for common illnesses, and general health management." data-so="Baaritaanno joogto ah, daaweynta xanuunnada caadiga ah, iyo maaraynta caafimaadka guud.">Routine check-ups, treatment for common illnesses, and general health management.</p>
+                    </div>
+                </div>
 
-    <section class="section wrap" id="about">
-      <div class="section-tag" data-so="KU SAABSAN ISBITAALKA" data-en="ABOUT THE HOSPITAL">KU SAABSAN ISBITAALKA</div>
-      <div class="about-grid">
-        <div><h2 data-so="Daryeel caafimaad oo u adeegaya Galdogob iyo nawaaxigeeda." data-en="Healthcare serving Galdogob and surrounding communities.">Daryeel caafimaad oo u adeegaya Galdogob iyo nawaaxigeeda.</h2></div>
-        <div><p data-so="Galdogob General Hospital waa xarun caafimaad oo ku taalla Goldogob, Soomaaliya. Boggan wuxuu bulshada siinayaa xogta xiriirka iyo tilmaamo ku saabsan adeegyada. Fadlan telefoonka kala xaqiiji adeegga gaarka ah ee aad u baahan tahay." data-en="Galdogob General Hospital is a healthcare facility in Goldogob, Somalia. This website provides contact information and guidance about services. Please call to confirm the availability of a specific service.">Galdogob General Hospital waa xarun caafimaad oo ku taalla Goldogob, Soomaaliya. Boggan wuxuu bulshada siinayaa xogta xiriirka iyo tilmaamo ku saabsan adeegyada. Fadlan telefoonka kala xaqiiji adeegga gaarka ah ee aad u baahan tahay.</p><a class="text-link" href="#contact" data-so="Faahfaahinta xiriirka →" data-en="Contact details →">Faahfaahinta xiriirka →</a></div>
-      </div>
-    </section>
+                <!-- Service Card 2 -->
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?q=80&w=2070&auto=format&fit=crop" alt="Emergency Services">
+                    <div class="service-content">
+                        <h3 data-en="Emergency Services" data-so="Adeegyada Degdegga ah">Emergency Services</h3>
+                        <p data-en="Immediate medical attention for critical conditions and accidents." data-so="Daryeel caafimaad oo degdeg ah oo loogu talagalay xaaladaha halista ah iyo shilalka.">Immediate medical attention for critical conditions and accidents.</p>
+                    </div>
+                </div>
 
-    <section class="services-section" id="services">
-      <div class="wrap">
-        <div class="section-tag" data-so="ADEEGYADA CAAFIMAADKA" data-en="HEALTHCARE SERVICES">ADEEGYADA CAAFIMAADKA</div>
-        <div class="section-head"><h2 data-so="Taageero caafimaad marka aad u baahato." data-en="Healthcare support when you need it.">Taageero caafimaad marka aad u baahato.</h2><p data-so="Adeegyada hoose waxaa lagu xusay xog dadweyne. Helitaanka adeeg kasta fadlan telefoon ku xaqiiji." data-en="The services below are mentioned in public information. Please call to confirm current availability.">Adeegyada hoose waxaa lagu xusay xog dadweyne. Helitaanka adeeg kasta fadlan telefoon ku xaqiiji.</p></div>
-        <div class="service-grid">
-          <article class="service-card"><span class="service-icon">✚</span><h3 data-so="Gurmadka degdegga ah" data-en="Emergency care">Gurmadka degdegga ah</h3><p data-so="Xaaladaha degdegga ah, si toos ah ula xiriir isbitaalka ama tag xarunta." data-en="For urgent situations, contact the hospital directly or go to the facility.">Xaaladaha degdegga ah, si toos ah ula xiriir isbitaalka ama tag xarunta.</p><a href="tel:+252907791150" data-so="Wac hadda →" data-en="Call now →">Wac hadda →</a></article>
-          <article class="service-card"><span class="service-icon">♡</span><h3 data-so="Hooyada iyo dhalmada" data-en="Maternity care">Hooyada iyo dhalmada</h3><p data-so="Adeegyada hooyada iyo qaybta dhalmada ayaa lagu xusay warbixinnada dadweynaha." data-en="Maternity and delivery services are mentioned in public reporting.">Adeegyada hooyada iyo qaybta dhalmada ayaa lagu xusay warbixinnada dadweynaha.</p><a href="tel:+252907791150" data-so="Xaqiiji adeegga →" data-en="Confirm service →">Xaqiiji adeegga →</a></article>
-          <article class="service-card"><span class="service-icon">⌁</span><h3 data-so="Qalliinka" data-en="Surgical care">Qalliinka</h3><p data-so="Qaybaha qalliinka iyo awoodda adeegga waa in si toos ah loo xaqiijiyaa." data-en="Surgical capacity and service availability should be confirmed directly.">Qaybaha qalliinka iyo awoodda adeegga waa in si toos ah loo xaqiijiyaa.</p><a href="tel:+252907791150" data-so="Wac si aad u ogaato →" data-en="Call to enquire →">Wac si aad u ogaato →</a></article>
-          <article class="service-card"><span class="service-icon">⌕</span><h3 data-so="Baaritaanno iyo ogaansho" data-en="Diagnostics">Baaritaanno iyo ogaansho</h3><p data-so="Adeegyada baaritaanka iyo qalabka la heli karo way is beddeli karaan; horay u wac." data-en="Available tests and equipment may vary; please call ahead.">Adeegyada baaritaanka iyo qalabka la heli karo way is beddeli karaan; horay u wac.</p><a href="tel:+252907791150" data-so="Wac isbitaalka →" data-en="Call hospital →">Wac isbitaalka →</a></article>
+                <!-- Service Card 3 -->
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" alt="Maternal and Child Healthcare">
+                    <div class="service-content">
+                        <h3 data-en="Maternal & Child Care" data-so="Daryeelka Hooyada iyo Dhallaanka">Maternal & Child Care</h3>
+                        <p data-en="Prenatal, postnatal care, and pediatric services for the health of mothers and children." data-so="Daryeelka uurka, dhalmada kadib, iyo adeegyada carruurta ee caafimaadka hooyooyinka iyo carruurta.">Prenatal, postnatal care, and pediatric services for the health of mothers and children.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=2070&auto=format&fit=crop" alt="Laboratory Services">
+                    <div class="service-content">
+                        <h3 data-en="Laboratory Services" data-so="Adeegyada Shaybaadhka">Laboratory Services</h3>
+                        <p data-en="Accurate diagnostic testing to support effective medical treatment." data-so="Baaritaanno sax ah oo loogu talagalay in lagu taageero daaweyn caafimaad oo waxtar leh.">Accurate diagnostic testing to support effective medical treatment.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop" alt="Medical Consultation">
+                    <div class="service-content">
+                        <h3 data-en="Medical Consultation" data-so="La-talinta Caafimaadka">Medical Consultation</h3>
+                        <p data-en="Professional medical advice and diagnosis from qualified healthcare providers." data-so="Talo caafimaad oo xirfad leh iyo baaritaan ka imanaya bixiyeyaasha daryeelka caafimaad ee aqoonta leh.">Professional medical advice and diagnosis from qualified healthcare providers.</p>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card reveal">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" alt="Diagnostic Services">
+                    <div class="service-content">
+                        <h3 data-en="Diagnostic Services" data-so="Adeegyada Baaritaanka">Diagnostic Services</h3>
+                        <p data-en="Advanced imaging and diagnostic tools to accurately identify health issues." data-so="Qalab casri ah oo sawir qaadis iyo baaritaan loogu talagalay in si sax ah loo aqoonsado dhibaatooyinka caafimaad.">Advanced imaging and diagnostic tools to accurately identify health issues.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="emergency">
-      <div class="wrap emergency-inner"><div><span class="emergency-label" data-so="U BAAHAN GARGAAR DEGDEG AH?" data-en="NEED URGENT HELP?">U BAAHAN GARGAAR DEGDEG AH?</span><h2 data-so="Ha sugin. La xiriir isbitaalka." data-en="Don't wait. Contact the hospital.">Ha sugin. La xiriir isbitaalka.</h2><p data-so="Isbitaalka waxaa lagu qoray inuu furan yahay 24 saac maalintii." data-en="The hospital is listed as open 24 hours a day.">Isbitaalka waxaa lagu qoray inuu furan yahay 24 saac maalintii.</p></div><a class="btn btn-light" href="tel:+252907791150">☎ &nbsp; +252 90 779 1150</a></div>
-    </section>
-
-    <section class="section wrap" id="appointment">
-      <div class="section-tag" data-so="CODSIGA BALLANTA" data-en="APPOINTMENT REQUEST">CODSIGA BALLANTA</div>
-      <div class="appointment-grid">
-        <div><h2 data-so="Dir codsiga ballantaada." data-en="Send an appointment request.">Dir codsiga ballantaada.</h2><p data-so="Buuxi xogta hoose. Fariinta waxaa lagu diyaarinayaa WhatsApp si aad ugu dirto isbitaalka. Codsigu ma aha ballan la xaqiijiyey; shaqaalaha isbitaalka ayaa xaqiijinaya." data-en="Complete the form below. A message will be prepared in WhatsApp for you to send to the hospital. This is not a confirmed appointment; hospital staff must confirm it.">Buuxi xogta hoose. Fariinta waxaa lagu diyaarinayaa WhatsApp si aad ugu dirto isbitaalka. Codsigu ma aha ballan la xaqiijiyey; shaqaalaha isbitaalka ayaa xaqiijinaya.</p></div>
-        <form id="bookingForm" class="booking-form">
-          <label><span data-so="Magaca oo buuxa" data-en="Full name">Magaca oo buuxa</span><input name="name" required placeholder="Magacaaga"></label>
-          <div class="form-row"><label><span data-so="Telefoonka" data-en="Phone number">Telefoonka</span><input name="phone" required type="tel" placeholder="+252..."></label><label><span data-so="Taariikhda aad rabto" data-en="Preferred date">Taariikhda aad rabto</span><input name="date" type="date" required></label></div>
-          <label><span data-so="Adeegga aad u baahan tahay" data-en="Service needed">Adeegga aad u baahan tahay</span><select name="service" required><option value="" data-so="Dooro adeeg" data-en="Select a service">Dooro adeeg</option><option>General consultation</option><option>Maternity</option><option>Emergency</option><option>Surgery enquiry</option><option>Diagnostics</option><option>Other</option></select></label>
-          <label><span data-so="Faahfaahin dheeraad ah (ikhtiyaari)" data-en="Additional details (optional)">Faahfaahin dheeraad ah (ikhtiyaari)</span><textarea name="details" rows="3" placeholder="..."></textarea></label>
-          <button class="btn btn-primary submit" type="submit" data-so="Ku dir WhatsApp →" data-en="Continue to WhatsApp →">Ku dir WhatsApp →</button>
-          <small class="form-note" data-so="Ha ku soo dirin xog caafimaad oo xasaasi ah foomkan. Xaalad degdeg ah, wac ama si toos ah u tag isbitaalka." data-en="Do not send sensitive medical information through this form. For emergencies, call or go directly to the hospital.">Ha ku soo dirin xog caafimaad oo xasaasi ah foomkan. Xaalad degdeg ah, wac ama si toos ah u tag isbitaalka.</small>
-        </form>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="wrap contact-grid">
-        <div><div class="section-tag" data-so="NALA SOO XIRIIR" data-en="GET IN TOUCH">NALA SOO XIRIIR</div><h2 data-so="Waxaan kuu joognaa 24/7." data-en="Here for you, 24/7.">Waxaan kuu joognaa 24/7.</h2><p data-so="Wac isbitaalka si aad u xaqiijiso adeegyada, ballamaha iyo xogta booqashada." data-en="Call the hospital to confirm services, appointments and visit information.">Wac isbitaalka si aad u xaqiijiso adeegyada, ballamaha iyo xogta booqashada.</p>
-          <div class="contact-line"><span>☎</span><div><small data-so="Telefoon" data-en="Phone">Telefoon</small><a href="tel:+252907791150">+252 90 779 1150</a></div></div>
-          <div class="contact-line"><span>⌖</span><div><small data-so="Cinwaan" data-en="Address">Cinwaan</small><strong>22FC+3XF, Goldogob, Somalia</strong></div></div>
-          <div class="contact-line"><span>◷</span><div><small data-so="Saacadaha" data-en="Hours">Saacadaha</small><strong data-so="24 saac • maalin kasta" data-en="24 hours • every day">24 saac • maalin kasta</strong></div></div>
+    <!-- Why Choose Us -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title" data-en="Why Choose Us" data-so="Maxaad Noo Dooranaysaa">Why Choose Us</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3 data-en="Patient-Centered Care" data-so="Daryeelka Bukaanka">Patient-Centered Care</h3>
+                    <p data-en="We prioritize the comfort and well-being of every patient." data-so="Waxaan mudnaanta siinnaa raaxada iyo fayoqabka bukaan kasta.">We prioritize the comfort and well-being of every patient.</p>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                    <h3 data-en="Accessibility" data-so="Helitaanka">Accessibility</h3>
+                    <p data-en="Conveniently located in Goldogob to serve the local community." data-so="Si ku habboon ugu yaal Goldogob si loogu adeego bulshada maxalliga ah.">Conveniently located in Goldogob to serve the local community.</p>
+                </div>
+                <div class="feature-box reveal">
+                    <div class="feature-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                    <h3 data-en="Community Health" data-so="Caafimaadka Bulshada">Community Health</h3>
+                    <p data-en="Dedicated to improving the overall health and awareness of our society." data-so="U heellan hagaajinta caafimaadka guud iyo wacyigelinta bulshadeena.">Dedicated to improving the overall health and awareness of our society.</p>
+                </div>
+            </div>
         </div>
-        <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=22FC%2B3XF%2C%20Goldogob%2C%20Somalia" target="_blank" rel="noopener"><div class="map-grid"></div><div class="map-pin">⌖</div><div class="map-caption"><strong>Galdogob General Hospital</strong><span>22FC+3XF, Goldogob</span><b data-so="Ka fur Google Maps ↗" data-en="Open Google Maps ↗">Ka fur Google Maps ↗</b></div></a>
-      </div>
     </section>
-  </main>
 
-  <footer><div class="wrap footer-inner"><a class="brand brand-footer" href="#home"><span class="brand-mark"><span>+</span></span><span class="brand-name">GALDOGOB <small>GENERAL HOSPITAL</small></span></a><p>© <span id="year"></span> Galdogob General Hospital. <span data-so="Xuquuqda way dhowran tahay." data-en="All rights reserved.">Xuquuqda way dhowran tahay.</span></p><a href="tel:+252907791150">+252 90 779 1150</a></div></footer>
-  <script src="script.js"></script>
+    <!-- Medical Team Section -->
+    <section id="team" class="section bg-light">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title" data-en="Our Medical Team" data-so="Kooxda Caafimaadka">Our Medical Team</h2>
+                <p data-en="Dedicated professionals ready to serve you. (Staff profiles coming soon)." data-so="Xirfadlayaal u heellan inay kuu adeegaan. (Astaamaha shaqaalaha ayaa dhawaan iman doona).">Dedicated professionals ready to serve you. (Staff profiles coming soon).</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-img-placeholder"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h3 data-en="Medical Director" data-so="Agaasimaha Caafimaadka">Medical Director</h3>
+                    <p data-en="Profile coming soon" data-so="Astaamaha dhawaan">Profile coming soon</p>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-img-placeholder"><i class="fa-solid fa-user-nurse"></i></div>
+                    <h3 data-en="Head Nurse" data-so="Kalkaalisada Madaxa">Head Nurse</h3>
+                    <p data-en="Profile coming soon" data-so="Astaamaha dhawaan">Profile coming soon</p>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-img-placeholder"><i class="fa-solid fa-stethoscope"></i></div>
+                    <h3 data-en="General Practitioner" data-so="Dhakhtarka Guud">General Practitioner</h3>
+                    <p data-en="Profile coming soon" data-so="Astaamaha dhawaan">Profile coming soon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container contact-container">
+            <div class="contact-info reveal">
+                <h2 class="section-title" data-en="Contact Us" data-so="Nala Soo Xiriir">Contact Us</h2>
+                <p data-en="For inquiries, appointments, or emergencies, please reach out to us." data-so="Wixii su'aalo, ballamo, ama xaalado degdeg ah, fadlan nala soo xiriir.">For inquiries, appointments, or emergencies, please reach out to us.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4 data-en="Location" data-so="Goobta">Location</h4>
+                        <p>22FC+3XF, Goldogob, Somalia</p>
+                        <a href="https://maps.google.com/?q=22FC%2B3XF,+Goldogob,+Somalia" target="_blank" class="map-link" data-en="Get Directions" data-so="Hel Tilmaamaha">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4 data-en="Phone" data-so="Taleefanka">Phone</h4>
+                        <p><a href="tel:+252907791150">+252 90 779 1150</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <div>
+                        <h4 data-en="WhatsApp" data-so="WhatsApp">WhatsApp</h4>
+                        <p><a href="https://wa.me/252907791150" target="_blank">+252 90 779 1150</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper reveal">
+                <form id="whatsapp-form">
+                    <h3 data-en="Send us a message" data-so="Noo soo dir fariin">Send us a message</h3>
+                    <div class="form-group">
+                        <label for="name" data-en="Your Name" data-so="Magacaaga">Your Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-en="Phone Number" data-so="Lambarka Taleefanka">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="+252...">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-en="Message" data-so="Fariinta">Message</label>
+                        <textarea id="message" rows="4" required placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" data-en="Send via WhatsApp" data-so="Ku Dir WhatsApp">Send via WhatsApp</button>
+                    <p class="form-disclaimer" data-en="Note: This will open WhatsApp to send your message. It does not automatically book an appointment." data-so="Ogeysiis: Tani waxay furi doontaa WhatsApp si ay u dirto fariintaada. Si otomaatig ah uma ballansato ballan.">Note: This will open WhatsApp to send your message. It does not automatically book an appointment.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/252907791150" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon" style="background: white; color: var(--primary-navy);">
+                        <i class="fa-solid fa-cross"></i>
+                    </div>
+                    <div class="logo-text text-white">
+                        <h1>Galdogob General</h1>
+                        <span>Hospital</span>
+                    </div>
+                </div>
+                <p data-en="Your Health, Our Priority." data-so="Caafimaadkaaga waa mudnaantayada.">Your Health, Our Priority.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4 data-en="Quick Links" data-so="Xiriiriyeyaasha Degdegga ah">Quick Links</h4>
+                <a href="#home" data-en="Home" data-so="Bogga Hore">Home</a>
+                <a href="#about" data-en="About Us" data-so="Nagu Saabsan">About Us</a>
+                <a href="#services" data-en="Services" data-so="Adeegyada">Services</a>
+                <a href="#contact" data-en="Contact" data-so="Nala Soo Xiriir">Contact</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4 data-en="Contact Info" data-so="Macluumaadka Xiriirka">Contact Info</h4>
+                <p><i class="fa-solid fa-location-dot"></i> 22FC+3XF, Goldogob, Somalia</p>
+                <p><i class="fa-solid fa-phone"></i> +252 90 779 1150</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Galdogob General Hospital. <span data-en="All rights reserved." data-so="Dhammaan xuquuqda way dhowran yihiin.">All rights reserved.</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
