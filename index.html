@@ -1,311 +1,2251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="so">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galdogob General Hospital | Isbitaalka Guud ee Galdogob</title>
-    <meta name="description" content="Galdogob General Hospital provides professional medical care, emergency services, and maternal healthcare in Goldogob, Somalia. Caafimaadkaaga waa mudnaantayada.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0B7A4B" />
+<title>Galdogob General Hospital — Daryeelka bulshada, caafimaadka mustaqbalka</title>
+<meta name="description" content="Galdogob General Hospital — daryeel caafimaad oo tayo leh oo loogu talagalay bulshada Galdogob iyo deegaanka ku wareegsan." />
+
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   1. TOKENS
+   ============================================================ */
+:root{
+  --red:#C8102E;
+  --red-dark:#9E0C24;
+  --red-soft:#FDECEE;
+  --green:#0B7A4B;
+  --green-dark:#075B38;
+  --green-bright:#12A05F;
+  --green-soft:#E8F5EF;
+  --white:#FFFFFF;
+  --ink:#0E1A16;
+  --muted:#5D6D67;
+  --line:#E3EAE7;
+  --bg:#F7FAF8;
+
+  --radius-sm:12px;
+  --radius:18px;
+  --radius-lg:26px;
+
+  --shadow-xs:0 1px 2px rgba(14,26,22,.06);
+  --shadow-sm:0 4px 14px rgba(14,26,22,.07);
+  --shadow-md:0 14px 36px rgba(14,26,22,.10);
+  --shadow-lg:0 28px 64px rgba(14,26,22,.16);
+
+  --header-h:70px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+/* ============================================================
+   2. BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:calc(var(--header-h) + 18px);
+  -webkit-text-size-adjust:100%;
+}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.locked{overflow:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+h1,h2,h3,h4{
+  font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+  line-height:1.14;
+  letter-spacing:-.022em;
+  margin:0 0 .5em;
+  font-weight:800;
+  color:var(--ink);
+}
+h1{font-size:clamp(2rem,7.2vw,3.75rem);}
+h2{font-size:clamp(1.55rem,4.6vw,2.6rem);}
+h3{font-size:clamp(1.08rem,2.4vw,1.3rem);font-weight:700;letter-spacing:-.015em;}
+p{margin:0 0 1rem;}
+ul{margin:0;padding:0;list-style:none;}
+
+.container{
+  width:100%;
+  max-width:1200px;
+  margin-inline:auto;
+  padding-inline:20px;
+}
+@media(min-width:768px){.container{padding-inline:32px;}}
+
+section{position:relative;}
+.section{padding:64px 0;}
+@media(min-width:900px){.section{padding:96px 0;}}
+
+:focus-visible{
+  outline:3px solid var(--green-bright);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* ============================================================
+   3. BUTTONS / PILLS
+   ============================================================ */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:13px 22px;
+  border-radius:999px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:700;
+  font-size:.94rem;
+  letter-spacing:-.01em;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease),
+             background-color .25s, color .25s, border-color .25s;
+  white-space:nowrap;
+  line-height:1;
+}
+.btn svg{width:18px;height:18px;flex:none;}
+.btn:active{transform:scale(.975);}
+
+.btn-primary{
+  background:var(--red);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(200,16,46,.28);
+}
+.btn-primary:hover{background:var(--red-dark);box-shadow:0 12px 28px rgba(200,16,46,.36);transform:translateY(-2px);}
+
+.btn-green{
+  background:var(--green);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(11,122,75,.26);
+}
+.btn-green:hover{background:var(--green-dark);box-shadow:0 12px 28px rgba(11,122,75,.34);transform:translateY(-2px);}
+
+.btn-outline{
+  background:#fff;
+  color:var(--ink);
+  border-color:var(--line);
+  box-shadow:var(--shadow-xs);
+}
+.btn-outline:hover{border-color:var(--green);color:var(--green-dark);transform:translateY(-2px);box-shadow:var(--shadow-sm);}
+
+.btn-ghost{
+  background:transparent;
+  color:var(--ink);
+  padding:11px 16px;
+}
+.btn-ghost:hover{background:var(--bg);color:var(--green-dark);}
+
+.btn-block{width:100%;}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:7px 15px 7px 11px;
+  border-radius:999px;
+  background:var(--green-soft);
+  color:var(--green-dark);
+  font-size:.79rem;
+  font-weight:600;
+  letter-spacing:.01em;
+  border:1px solid rgba(11,122,75,.14);
+}
+.pill .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green-bright);
+  box-shadow:0 0 0 0 rgba(18,160,95,.6);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(18,160,95,.55);}
+  70%{box-shadow:0 0 0 8px rgba(18,160,95,0);}
+  100%{box-shadow:0 0 0 0 rgba(18,160,95,0);}
+}
+
+/* ============================================================
+   4. HEADER / NAV
+   ============================================================ */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(180%) blur(16px);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s, box-shadow .3s, background .3s;
+}
+.site-header.scrolled{
+  border-bottom-color:var(--line);
+  box-shadow:0 6px 24px rgba(14,26,22,.06);
+  background:rgba(255,255,255,.94);
+}
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  height:var(--header-h);
+}
+
+/* Brand */
+.brand{display:flex;align-items:center;gap:11px;flex:none;}
+.logo-mark{width:40px;height:40px;flex:none;transition:transform .4s var(--ease);}
+.brand:hover .logo-mark{transform:rotate(-6deg) scale(1.05);}
+.brand-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-name{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:800;
+  font-size:1rem;
+  letter-spacing:-.03em;
+  color:var(--ink);
+}
+.brand-sub{
+  font-size:.63rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--green);
+}
+
+/* Desktop nav */
+.nav-links{display:none;}
+@media(min-width:1024px){
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:2px;
+    flex:1;
+    justify-content:center;
+  }
+  .nav-links a{
+    position:relative;
+    padding:9px 13px;
+    font-size:.9rem;
+    font-weight:500;
+    color:var(--muted);
+    border-radius:9px;
+    transition:color .22s, background .22s;
+    white-space:nowrap;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:13px;right:13px;bottom:4px;
+    height:2px;
+    border-radius:2px;
+    background:var(--red);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .3s var(--ease);
+  }
+  .nav-links a:hover{color:var(--ink);background:var(--bg);}
+  .nav-links a.active{color:var(--green-dark);font-weight:600;}
+  .nav-links a.active::after{transform:scaleX(1);background:var(--green);}
+}
+
+.nav-actions{display:flex;align-items:center;gap:8px;flex:none;}
+.nav-actions .btn-primary{display:none;}
+@media(min-width:640px){.nav-actions .btn-primary{display:inline-flex;padding:11px 18px;font-size:.87rem;}}
+
+.icon-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:42px;height:42px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--ink);
+  transition:.25s var(--ease);
+  box-shadow:var(--shadow-xs);
+}
+.icon-btn svg{width:18px;height:18px;}
+.icon-btn:hover{background:var(--green-soft);border-color:rgba(11,122,75,.3);color:var(--green-dark);transform:translateY(-2px);}
+.icon-btn.call:hover{background:var(--red-soft);border-color:rgba(200,16,46,.3);color:var(--red);}
+
+/* Hamburger */
+.hamburger{
+  display:inline-flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:42px;height:42px;
+  padding:0 10px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:#fff;
+  cursor:pointer;
+  transition:.25s var(--ease);
+  box-shadow:var(--shadow-xs);
+}
+.hamburger span{
+  display:block;
+  height:2px;
+  width:100%;
+  border-radius:2px;
+  background:var(--ink);
+  transition:transform .35s var(--ease), opacity .2s;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(min-width:1024px){.hamburger{display:none;}}
+
+/* Mobile menu */
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  z-index:90;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  display:flex;
+  flex-direction:column;
+  padding:calc(var(--header-h) + 24px) 24px 32px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .35s var(--ease), visibility .35s;
+  overflow-y:auto;
+}
+.mobile-menu.open{opacity:1;visibility:visible;}
+.mobile-menu nav{display:flex;flex-direction:column;gap:4px;flex:1;}
+.mobile-menu nav a{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.35rem;
+  font-weight:700;
+  letter-spacing:-.02em;
+  padding:13px 6px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink);
+  opacity:0;
+  transform:translateY(14px);
+  transition:color .2s, opacity .4s var(--ease), transform .4s var(--ease);
+}
+.mobile-menu.open nav a{opacity:1;transform:none;}
+.mobile-menu nav a:hover{color:var(--red);}
+.mobile-menu-foot{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:26px;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .45s var(--ease) .25s, transform .45s var(--ease) .25s;
+}
+.mobile-menu.open .mobile-menu-foot{opacity:1;transform:none;}
+.mm-contact{
+  display:flex;align-items:center;gap:10px;
+  font-size:.9rem;color:var(--muted);
+  padding:10px 4px;
+}
+.mm-contact svg{width:17px;height:17px;color:var(--green);flex:none;}
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero{
+  position:relative;
+  padding:36px 0 96px;
+  overflow:hidden;
+  background:
+    radial-gradient(900px 520px at 92% -12%, rgba(200,16,46,.075), transparent 62%),
+    radial-gradient(760px 480px at -8% 108%, rgba(11,122,75,.10), transparent 62%),
+    var(--white);
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right, rgba(14,26,22,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14,26,22,.035) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+  -webkit-mask-image:radial-gradient(circle at 50% 0%, #000 0%, transparent 72%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;
+  display:grid;
+  gap:36px;
+  align-items:center;
+}
+@media(min-width:960px){
+  .hero-grid{grid-template-columns:1.06fr .94fr;gap:56px;}
+  .hero{padding:56px 0 110px;}
+}
+
+.hero-copy h1{margin-top:18px;margin-bottom:16px;}
+.hero-copy h1 .accent{
+  background:linear-gradient(100deg,var(--green) 0%,var(--green-bright) 55%,var(--red) 130%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.hero-copy > p{
+  font-size:1.02rem;
+  color:var(--muted);
+  max-width:52ch;
+  margin-bottom:26px;
+}
+@media(min-width:900px){.hero-copy > p{font-size:1.08rem;}}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:28px;}
+
+.hero-features{
+  display:grid;
+  gap:10px;
+  grid-template-columns:1fr;
+}
+@media(min-width:520px){.hero-features{grid-template-columns:1fr 1fr;}}
+.hero-features li{
+  display:flex;align-items:center;gap:10px;
+  font-size:.88rem;font-weight:500;color:var(--ink);
+}
+.hero-features .tick{
+  width:22px;height:22px;flex:none;
+  border-radius:50%;
+  background:var(--green-soft);
+  color:var(--green);
+  display:grid;place-items:center;
+}
+.hero-features .tick svg{width:12px;height:12px;}
+
+/* Hero media */
+.hero-media{position:relative;}
+.hero-frame{
+  position:relative;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  aspect-ratio:4/4.4;
+  background:linear-gradient(135deg,var(--green-dark),var(--green) 45%,var(--red));
+  box-shadow:var(--shadow-lg);
+  isolation:isolate;
+}
+@media(min-width:960px){.hero-frame{aspect-ratio:1/1.1;}}
+.hero-frame img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.2s var(--ease);
+}
+.hero-media:hover .hero-frame img{transform:scale(1.045);}
+.hero-frame::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 42%,rgba(7,52,34,.55) 100%);
+  pointer-events:none;
+}
+.hero-frame.no-img img{display:none;}
+
+.hero-badge{
+  position:absolute;
+  z-index:2;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:16px;
+  padding:11px 15px;
+  box-shadow:var(--shadow-md);
+  display:flex;
+  align-items:center;
+  gap:11px;
+  animation:float 6s ease-in-out infinite;
+}
+.hero-badge .hb-ico{
+  width:36px;height:36px;border-radius:11px;
+  display:grid;place-items:center;flex:none;
+}
+.hero-badge .hb-ico svg{width:18px;height:18px;}
+.hero-badge strong{
+  display:block;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.82rem;font-weight:800;letter-spacing:-.01em;
+}
+.hero-badge small{font-size:.7rem;color:var(--muted);font-weight:500;}
+
+.hb-1{top:16px;left:-6px;animation-delay:.2s;}
+.hb-1 .hb-ico{background:var(--green-soft);color:var(--green);}
+.hb-2{bottom:18px;right:-6px;animation-delay:1.4s;}
+.hb-2 .hb-ico{background:var(--red-soft);color:var(--red);}
+@media(min-width:520px){.hb-1{left:-18px;}.hb-2{right:-18px;}}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-9px);}
+}
+
+/* ============================================================
+   6. QUICK ACTIONS
+   ============================================================ */
+.quick-wrap{position:relative;z-index:5;margin-top:-64px;}
+@media(min-width:900px){.quick-wrap{margin-top:-72px;}}
+.quick-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-lg);
+  padding:14px;
+  display:grid;
+  gap:8px;
+}
+@media(min-width:768px){
+  .quick-card{grid-template-columns:repeat(3,1fr);padding:16px;gap:10px;}
+}
+.quick-item{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:14px;
+  border-radius:16px;
+  transition:background .25s, transform .25s var(--ease);
+}
+.quick-item:hover{background:var(--bg);transform:translateY(-2px);}
+.quick-item .qi-ico{
+  width:46px;height:46px;flex:none;
+  border-radius:14px;
+  display:grid;place-items:center;
+  transition:transform .3s var(--ease);
+}
+.quick-item:hover .qi-ico{transform:scale(1.08) rotate(-4deg);}
+.quick-item .qi-ico svg{width:21px;height:21px;}
+.qi-red{background:var(--red-soft);color:var(--red);}
+.qi-green{background:var(--green-soft);color:var(--green);}
+.qi-dark{background:#0E1A16;color:#fff;}
+.quick-item strong{
+  display:block;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.95rem;font-weight:700;letter-spacing:-.015em;
+}
+.quick-item span{font-size:.78rem;color:var(--muted);}
+.quick-item .qi-arrow{margin-left:auto;color:var(--line);transition:.25s;flex:none;}
+.quick-item .qi-arrow svg{width:18px;height:18px;}
+.quick-item:hover .qi-arrow{color:var(--green);transform:translateX(3px);}
+
+/* ============================================================
+   7. SECTION HEAD
+   ============================================================ */
+.section-head{max-width:660px;margin-bottom:38px;}
+.section-head.center{margin-inline:auto;text-align:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.74rem;font-weight:800;
+  letter-spacing:.13em;text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:'';width:26px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--red),var(--green));
+}
+.section-head.center .eyebrow::after{
+  content:'';width:26px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--green),var(--red));
+}
+.section-head h2{margin-bottom:14px;}
+.section-head p{color:var(--muted);font-size:.98rem;margin:0;}
+@media(min-width:900px){.section-head p{font-size:1.03rem;}}
+
+/* ============================================================
+   8. ABOUT
+   ============================================================ */
+.about{background:var(--bg);}
+.about-grid{display:grid;gap:38px;align-items:center;}
+@media(min-width:960px){.about-grid{grid-template-columns:.95fr 1.05fr;gap:64px;}}
+
+.about-media{position:relative;}
+.about-frame{
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  aspect-ratio:5/4.4;
+  background:linear-gradient(135deg,var(--green-dark),var(--red));
+  box-shadow:var(--shadow-md);
+}
+.about-frame img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease);}
+.about-media:hover .about-frame img{transform:scale(1.05);}
+.about-frame.no-img img{display:none;}
+.about-tag{
+  position:absolute;
+  bottom:-16px;left:16px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:13px 17px;
+  box-shadow:var(--shadow-md);
+  display:flex;align-items:center;gap:12px;
+}
+@media(min-width:520px){.about-tag{left:-18px;}}
+.about-tag .at-ico{
+  width:38px;height:38px;border-radius:11px;
+  background:var(--red-soft);color:var(--red);
+  display:grid;place-items:center;flex:none;
+}
+.about-tag .at-ico svg{width:19px;height:19px;}
+.about-tag strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.85rem;font-weight:800;}
+.about-tag small{font-size:.72rem;color:var(--muted);}
+
+.about-facts{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:26px 0 22px;
+}
+.fact{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:14px 16px;
+  transition:.25s var(--ease);
+}
+.fact:hover{border-color:rgba(11,122,75,.3);box-shadow:var(--shadow-sm);transform:translateY(-2px);}
+.fact .f-val{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.35rem;font-weight:800;
+  color:var(--green-dark);
+  letter-spacing:-.03em;
+  line-height:1.1;
+}
+.fact .f-label{font-size:.75rem;color:var(--muted);font-weight:500;}
+
+.note{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:.78rem;
+  color:var(--muted);
+  background:#fff;
+  border:1px dashed var(--line);
+  border-radius:12px;
+  padding:11px 14px;
+  line-height:1.5;
+}
+.note svg{width:15px;height:15px;flex:none;margin-top:2px;color:var(--green);}
+
+/* ============================================================
+   9. SERVICES
+   ============================================================ */
+.services-grid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:1fr;
+}
+@media(min-width:600px){.services-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1000px){.services-grid{grid-template-columns:repeat(3,1fr);gap:20px;}}
+
+.service-card{
+  position:relative;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px 22px 22px;
+  overflow:hidden;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  inset:0 0 auto 0;
+  height:3px;
+  background:linear-gradient(90deg,var(--red),var(--green));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md);
+  border-color:transparent;
+}
+.service-card:hover::before{transform:scaleX(1);}
+
+.service-ico{
+  width:52px;height:52px;
+  border-radius:15px;
+  display:grid;place-items:center;
+  margin-bottom:18px;
+  transition:transform .4s var(--ease);
+}
+.service-card:hover .service-ico{transform:rotate(-7deg) scale(1.07);}
+.service-ico svg{width:24px;height:24px;}
+.service-card h3{margin-bottom:8px;}
+.service-card p{font-size:.88rem;color:var(--muted);margin:0 0 16px;}
+.svc-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--red);
+  background:var(--red-soft);
+  border-radius:999px;
+  padding:5px 11px;
+}
+.svc-tag .d{width:5px;height:5px;border-radius:50%;background:var(--red);}
+
+/* ============================================================
+   10. DOCTORS
+   ============================================================ */
+.doctors{background:var(--bg);}
+.doctors-grid{
+  display:grid;gap:16px;grid-template-columns:1fr;
+}
+@media(min-width:560px){.doctors-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:1000px){.doctors-grid{grid-template-columns:repeat(4,1fr);gap:20px;}}
+
+.doctor-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px 20px;
+  text-align:center;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.doctor-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.doc-avatar{
+  width:84px;height:84px;
+  margin:0 auto 16px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:1.6rem;font-weight:800;
+  color:#fff;
+  position:relative;
+  background:linear-gradient(140deg,var(--green),var(--green-dark));
+  box-shadow:0 10px 24px rgba(11,122,75,.22);
+}
+.doctor-card:nth-child(even) .doc-avatar{
+  background:linear-gradient(140deg,var(--red),var(--red-dark));
+  box-shadow:0 10px 24px rgba(200,16,46,.22);
+}
+.doc-avatar::after{
+  content:'';
+  position:absolute;
+  inset:-5px;
+  border-radius:50%;
+  border:2px dashed rgba(11,122,75,.22);
+}
+.doctor-card:nth-child(even) .doc-avatar::after{border-color:rgba(200,16,46,.22);}
+.doctor-card h3{font-size:1rem;margin-bottom:4px;}
+.doc-role{font-size:.82rem;color:var(--muted);margin-bottom:14px;display:block;}
+.doc-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--green-dark);
+  background:var(--green-soft);
+  border-radius:999px;
+  padding:5px 11px;
+}
+.doc-badge svg{width:11px;height:11px;}
+
+/* ============================================================
+   11. NEWS
+   ============================================================ */
+.news-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+@media(min-width:760px){.news-grid{grid-template-columns:repeat(3,1fr);gap:22px;}}
+
+.news-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.news-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
+.news-thumb{
+  position:relative;
+  aspect-ratio:16/10;
+  background:linear-gradient(135deg,var(--green-dark),var(--red));
+  overflow:hidden;
+}
+.news-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease);}
+.news-card:hover .news-thumb img{transform:scale(1.06);}
+.news-thumb.no-img img{display:none;}
+.news-date{
+  position:absolute;top:12px;left:12px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);
+  border-radius:9px;
+  padding:5px 11px;
+  font-size:.7rem;font-weight:700;
+  color:var(--green-dark);
+  letter-spacing:.03em;
+}
+.news-body{padding:20px;display:flex;flex-direction:column;flex:1;}
+.news-cat{
+  font-size:.68rem;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--red);margin-bottom:9px;
+}
+.news-body h3{font-size:1.02rem;margin-bottom:9px;}
+.news-body p{font-size:.86rem;color:var(--muted);margin:0 0 16px;flex:1;}
+.news-link{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.83rem;font-weight:700;
+  color:var(--green-dark);
+  transition:gap .25s var(--ease);
+}
+.news-link svg{width:15px;height:15px;transition:transform .25s var(--ease);}
+.news-card:hover .news-link svg{transform:translateX(3px);}
+
+/* ============================================================
+   12. GALLERY
+   ============================================================ */
+.gallery{background:var(--bg);}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+@media(min-width:760px){
+  .gallery-grid{grid-template-columns:repeat(4,1fr);gap:14px;}
+  .g-item.tall{grid-row:span 2;}
+}
+.g-item{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  aspect-ratio:1/1;
+  background:linear-gradient(135deg,var(--green-dark),var(--red));
+  box-shadow:var(--shadow-xs);
+}
+.g-item.tall{aspect-ratio:1/1;}
+@media(min-width:760px){.g-item.tall{aspect-ratio:auto;}}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+.g-item:hover img{transform:scale(1.08);}
+.g-item.no-img img{display:none;}
+.g-item::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(7,52,34,.72));
+  opacity:0;
+  transition:opacity .35s;
+}
+.g-item:hover::after{opacity:1;}
+.g-cap{
+  position:absolute;
+  left:14px;right:14px;bottom:12px;
+  z-index:2;
+  color:#fff;
+  font-size:.78rem;font-weight:600;
+  opacity:0;
+  transform:translateY(8px);
+  transition:.35s var(--ease);
+}
+.g-item:hover .g-cap{opacity:1;transform:none;}
+
+/* Lightbox */
+.lightbox{
+  position:fixed;inset:0;z-index:120;
+  background:rgba(8,20,16,.92);
+  backdrop-filter:blur(10px);
+  display:grid;place-items:center;
+  padding:24px;
+  opacity:0;visibility:hidden;
+  transition:opacity .3s, visibility .3s;
+  cursor:zoom-out;
+}
+.lightbox.open{opacity:1;visibility:visible;}
+.lightbox img{
+  max-width:100%;max-height:86vh;
+  border-radius:16px;
+  box-shadow:0 40px 100px rgba(0,0,0,.55);
+  transform:scale(.94);
+  transition:transform .35s var(--ease);
+}
+.lightbox.open img{transform:scale(1);}
+
+/* ============================================================
+   13. CONTACT
+   ============================================================ */
+.contact-grid{display:grid;gap:24px;}
+@media(min-width:980px){.contact-grid{grid-template-columns:1.05fr .95fr;gap:32px;}}
+
+.form-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  padding:26px 22px;
+  box-shadow:var(--shadow-sm);
+}
+@media(min-width:600px){.form-card{padding:34px;}}
+.form-card h3{font-size:1.25rem;margin-bottom:6px;}
+.form-card > p{font-size:.87rem;color:var(--muted);margin-bottom:22px;}
+
+.form-row{display:grid;gap:14px;}
+@media(min-width:560px){.form-row.two{grid-template-columns:1fr 1fr;}}
+.field{margin-bottom:14px;}
+.field label{
+  display:block;
+  font-size:.79rem;font-weight:600;
+  color:var(--ink);
+  margin-bottom:7px;
+  letter-spacing:.005em;
+}
+.field label .req{color:var(--red);}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  font-family:inherit;
+  font-size:.92rem;
+  color:var(--ink);
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 14px;
+  transition:border-color .22s, background .22s, box-shadow .22s;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.field textarea{resize:vertical;min-height:96px;}
+.field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235D6D67' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  padding-right:40px;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  outline:none;
+  background:#fff;
+  border-color:var(--green);
+  box-shadow:0 0 0 4px rgba(11,122,75,.10);
+}
+.field input::placeholder,
+.field textarea::placeholder{color:#9AA8A3;}
+.form-note{
+  display:flex;gap:9px;
+  font-size:.76rem;color:var(--muted);
+  margin-top:14px;line-height:1.55;
+}
+.form-note svg{width:14px;height:14px;flex:none;margin-top:2px;color:var(--green);}
+
+/* Info card */
+.info-card{
+  background:linear-gradient(155deg,var(--green-dark) 0%,var(--green) 58%,#0A6B42 100%);
+  border-radius:var(--radius-lg);
+  padding:28px 22px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+}
+@media(min-width:600px){.info-card{padding:34px;}}
+.info-card::before{
+  content:'';
+  position:absolute;
+  width:260px;height:260px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,16,46,.55),transparent 68%);
+  top:-110px;right:-90px;
+  pointer-events:none;
+}
+.info-card::after{
+  content:'';
+  position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);
+  bottom:-100px;left:-70px;
+  pointer-events:none;
+}
+.info-card h3{color:#fff;font-size:1.25rem;margin-bottom:6px;position:relative;}
+.info-card > p{font-size:.87rem;color:rgba(255,255,255,.75);margin-bottom:24px;position:relative;}
+
+.info-list{position:relative;display:grid;gap:4px;margin-bottom:24px;}
+.info-item{
+  display:flex;align-items:flex-start;gap:13px;
+  padding:13px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.info-item:last-child{border-bottom:none;}
+.info-item .ii-ico{
+  width:38px;height:38px;flex:none;
+  border-radius:11px;
+  background:rgba(255,255,255,.13);
+  display:grid;place-items:center;
+  transition:.25s var(--ease);
+}
+.info-item:hover .ii-ico{background:rgba(255,255,255,.22);transform:scale(1.06);}
+.info-item .ii-ico svg{width:17px;height:17px;}
+.info-item small{
+  display:block;
+  font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);
+  font-weight:700;
+  margin-bottom:2px;
+}
+.info-item strong{font-size:.92rem;font-weight:600;color:#fff;letter-spacing:.005em;}
+
+.info-actions{display:grid;gap:10px;position:relative;}
+.info-actions .btn{width:100%;}
+.info-actions .btn-white{
+  background:#fff;color:var(--green-dark);
+  box-shadow:0 8px 22px rgba(0,0,0,.18);
+}
+.info-actions .btn-white:hover{background:#F2F7F4;transform:translateY(-2px);}
+.info-actions .btn-red{background:var(--red);color:#fff;}
+.info-actions .btn-red:hover{background:var(--red-dark);transform:translateY(-2px);}
+
+/* Map */
+.map-wrap{
+  margin-top:32px;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  background:var(--bg);
+  line-height:0;
+}
+.map-wrap iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  display:block;
+  filter:saturate(1.05);
+}
+@media(min-width:900px){.map-wrap iframe{height:420px;}}
+
+/* ============================================================
+   14. FOOTER
+   ============================================================ */
+.site-footer{
+  background:#08150F;
+  color:rgba(255,255,255,.72);
+  padding:56px 0 0;
+  margin-top:0;
+}
+.footer-grid{display:grid;gap:34px;margin-bottom:42px;}
+@media(min-width:760px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr 1.1fr;gap:30px;}}
+
+.footer-brand .brand{margin-bottom:16px;}
+.footer-brand .brand-name{color:#fff;}
+.footer-brand .brand-sub{color:var(--green-bright);}
+.footer-brand p{font-size:.86rem;line-height:1.7;color:rgba(255,255,255,.6);max-width:34ch;margin-bottom:18px;}
+
+.footer-social{display:flex;gap:9px;}
+.footer-social a{
+  width:36px;height:36px;
+  border-radius:10px;
+  background:rgba(255,255,255,.07);
+  display:grid;place-items:center;
+  color:rgba(255,255,255,.75);
+  transition:.25s var(--ease);
+}
+.footer-social a svg{width:16px;height:16px;}
+.footer-social a:hover{background:var(--green);color:#fff;transform:translateY(-3px);}
+
+.footer-col h4{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#fff;
+  margin:0 0 16px;
+}
+.footer-col ul{display:grid;gap:10px;}
+.footer-col a{
+  font-size:.86rem;
+  color:rgba(255,255,255,.62);
+  transition:color .2s, padding-left .25s var(--ease);
+  display:inline-block;
+}
+.footer-col a:hover{color:#fff;padding-left:5px;}
+
+.footer-contact li{
+  display:flex;gap:10px;
+  font-size:.85rem;
+  color:rgba(255,255,255,.62);
+  line-height:1.5;
+}
+.footer-contact svg{width:15px;height:15px;flex:none;margin-top:3px;color:var(--green-bright);}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.09);
+  padding:20px 0 26px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  text-align:center;
+  font-size:.78rem;
+  color:rgba(255,255,255,.45);
+}
+@media(min-width:700px){
+  .footer-bottom{flex-direction:row;justify-content:space-between;text-align:left;}
+}
+.footer-bottom .fb-links{display:flex;gap:18px;}
+.footer-bottom a:hover{color:#fff;}
+
+/* ============================================================
+   15. FLOATING ACTIONS
+   ============================================================ */
+.float-actions{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:70;
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  align-items:flex-end;
+}
+@media(min-width:768px){.float-actions{right:24px;bottom:24px;gap:13px;}}
+
+.fab{
+  position:relative;
+  width:54px;height:54px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  color:#fff;
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+@media(min-width:768px){.fab{width:58px;height:58px;}}
+.fab svg{width:24px;height:24px;}
+.fab:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 18px 36px rgba(0,0,0,.3);}
+.fab:active{transform:scale(.96);}
+
+.fab-wa{background:#25D366;}
+.fab-call{background:var(--red);}
+.fab-wa::before{
+  content:'';
+  position:absolute;inset:0;
+  border-radius:50%;
+  background:#25D366;
+  opacity:.45;
+  animation:ring 2.6s ease-out infinite;
+  z-index:-1;
+}
+@keyframes ring{
+  0%{transform:scale(1);opacity:.45;}
+  70%{transform:scale(1.55);opacity:0;}
+  100%{transform:scale(1.55);opacity:0;}
+}
+.fab-label{
+  position:absolute;
+  right:calc(100% + 12px);
+  top:50%;
+  transform:translateY(-50%) translateX(6px);
+  background:#0E1A16;
+  color:#fff;
+  font-size:.75rem;
+  font-weight:600;
+  white-space:nowrap;
+  padding:7px 12px;
+  border-radius:8px;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s var(--ease);
+}
+.fab:hover .fab-label{opacity:1;transform:translateY(-50%) translateX(0);}
+@media(max-width:600px){.fab-label{display:none;}}
+
+/* ============================================================
+   16. TOAST
+   ============================================================ */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:28px;
+  transform:translate(-50%,120%);
+  z-index:200;
+  background:#0E1A16;
+  color:#fff;
+  border-radius:14px;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:.86rem;
+  font-weight:500;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  transition:transform .45s var(--ease);
+  max-width:calc(100vw - 32px);
+}
+.toast.show{transform:translate(-50%,0);}
+.toast .t-ico{
+  width:26px;height:26px;flex:none;
+  border-radius:50%;
+  background:var(--green-bright);
+  display:grid;place-items:center;
+}
+.toast .t-ico svg{width:14px;height:14px;}
+
+/* ============================================================
+   17. REVEAL ANIMATIONS
+   ============================================================ */
+.js [data-reveal]{
+  opacity:0;
+  transform:translateY(26px);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
+  will-change:opacity, transform;
+}
+.js [data-reveal].in{opacity:1;transform:none;}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .js [data-reveal]{opacity:1;transform:none;}
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Top Header -->
-    <header class="header">
-        <div class="container header-container">
-            <!-- Logo (Using the uploaded image) -->
-            <a href="#" class="logo">
-                <!-- Fadlan hubi in sawirka logadaada loo beddelay logo.png -->
-                <img src="logo.png" alt="Galdogob General Hospital Logo" class="brand-logo">
-                <div class="logo-text">
-                    <h1>Galdogob General</h1>
-                    <span>Hospital</span>
-                </div>
-            </a>
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="container nav-inner">
 
-            <!-- Desktop Navigation -->
-            <nav class="nav-links">
-                <a href="#home" data-en="Home" data-so="Bogga Hore">Home</a>
-                <a href="#about" data-en="About Us" data-so="Nagu Saabsan">About Us</a>
-                <a href="#services" data-en="Services" data-so="Adeegyada">Services</a>
-                <a href="#team" data-en="Team" data-so="Kooxda">Team</a>
-                <a href="#contact" data-en="Contact" data-so="Nala Soo Xiriir">Contact</a>
-            </nav>
-
-            <!-- Header Actions -->
-            <div class="header-actions">
-                <button id="lang-toggle" class="lang-btn" aria-label="Switch Language">Somali</button>
-                <a href="tel:+252907791150" class="btn btn-emergency">
-                    <i class="fa-solid fa-phone-volume"></i> 
-                    <span data-en="Emergency" data-so="Degdeg">Emergency</span>
-                </a>
-                <button class="mobile-menu-btn" aria-label="Open Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobile-menu">
-        <button class="close-menu-btn" aria-label="Close Menu"><i class="fa-solid fa-times"></i></button>
-        <nav class="mobile-nav-links">
-            <a href="#home" data-en="Home" data-so="Bogga Hore">Home</a>
-            <a href="#about" data-en="About Us" data-so="Nagu Saabsan">About Us</a>
-            <a href="#services" data-en="Services" data-so="Adeegyada">Services</a>
-            <a href="#team" data-en="Team" data-so="Kooxda">Team</a>
-            <a href="#contact" data-en="Contact" data-so="Nala Soo Xiriir">Contact</a>
-            <a href="tel:+252907791150" class="btn btn-emergency mt-2">
-                <i class="fa-solid fa-phone-volume"></i> 
-                <span data-en="Emergency Call" data-so="Wicitaan Degdeg ah">Emergency Call</span>
-            </a>
-        </nav>
-    </div>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <!-- AI Generated Image: Modern hospital in Somalia -->
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <h1 class="reveal" data-en="Your Health, Our Priority." data-so="Caafimaadkaaga waa mudnaantayada.">Your Health, Our Priority.</h1>
-            <p class="reveal" data-en="Providing trusted, professional, and compassionate healthcare to the Goldogob community." data-so="Bixinta daryeel caafimaad oo lagu kalsoonaan karo, xirfad leh, iyo naxariis leh bulshada Goldogob.">Providing trusted, professional, and compassionate healthcare to the Goldogob community.</p>
-            <div class="hero-buttons reveal">
-                <a href="#contact" class="btn btn-primary" data-en="Contact Hospital" data-so="La Xiriir Isbitaalka">Contact Hospital</a>
-                <a href="#services" class="btn btn-secondary" data-en="Our Services" data-so="Adeegyadayada">Our Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container about-container">
-            <div class="about-image reveal">
-                <!-- AI Generated Image: Somali doctor and nurse -->
-                <img src="https://image.pollinations.ai/prompt/photo%20of%20a%20professional%20Somali%20doctor%20and%20nurse%20working%20together%20in%20a%20modern%20clean%20hospital%20ward,%20realistic,%20high%20quality?width=800&height=600&nologo=true" alt="Somali Medical Team">
-            </div>
-            <div class="about-text reveal">
-                <h2 class="section-title text-left" data-en="About Galdogob General Hospital" data-so="Ku Saabsan Isbitaalka Guud ee Galdogob">About Galdogob General Hospital</h2>
-                <p data-en="Galdogob General Hospital is dedicated to serving the community by providing essential medical services, emergency care, and health education. Located in the heart of Goldogob, Somalia, our facility strives to offer accessible and reliable healthcare to all patients." data-so="Isbitaalka Guud ee Goldogob waxa uu u heellan yahay u adeegidda bulshada isagoo bixinaya adeegyo caafimaad oo muhiim ah, daryeel degdeg ah, iyo waxbarasho caafimaad. Oo ku yaal bartamaha Goldogob, Soomaaliya, xarunteenu waxay ku dadaashaa inay siiso dhammaan bukaannada daryeel caafimaad oo la heli karo oo lagu kalsoonaan karo.">Galdogob General Hospital is dedicated to serving the community by providing essential medical services, emergency care, and health education. Located in the heart of Goldogob, Somalia, our facility strives to offer accessible and reliable healthcare to all patients.</p>
-                <p data-en="We focus on patient-centered care, ensuring that every individual who walks through our doors is treated with dignity and respect." data-so="Waxaan diiradda saaraynaa daryeelka bukaanka, annagoo hubinayna in qof kasta oo albaabada soo galo lagu qaabilo sharaf iyo ixtiraam.">We focus on patient-centered care, ensuring that every individual who walks through our doors is treated with dignity and respect.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section bg-light">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title" data-en="Medical Services" data-so="Adeegyada Caafimaadka">Medical Services</h2>
-                <p data-en="Comprehensive healthcare services designed to meet the needs of our community." data-so="Adeegyo caafimaad oo dhammaystiran oo loogu talagalay in lagu daboolo baahiyaha bulshadeena.">Comprehensive healthcare services designed to meet the needs of our community.</p>
-            </div>
-            
-            <div class="services-grid">
-                <!-- Service Card 1 -->
-                <div class="service-card reveal">
-                    <img src="https://image.pollinations.ai/prompt/photo%20of%20Somali%20doctor%20consulting%20a%20Somali%20patient%20in%20a%20clinic%20room,%20realistic,%20high%20quality?width=600&height=400&nologo=true" alt="General Medical Care">
-                    <div class="service-content">
-                        <h3 data-en="General Medical Care" data-so="Daryeelka Caafimaadka Guud">General Medical Care</h3>
-                        <p data-en="Routine check-ups, treatment for common illnesses, and general health management." data-so="Baaritaanno joogto ah, daaweynta xanuunnada caadiga ah, iyo maaraynta caafimaadka guud.">Routine check-ups, treatment for common illnesses, and general health management.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 2 -->
-                <div class="service-card reveal">
-                    <img src="https://image.pollinations.ai/prompt/photo%20of%20Somali%20emergency%20medical%20team%20rushing%20in%20hospital%20corridor,%20realistic,%20high%20quality?width=600&height=400&nologo=true" alt="Emergency Services">
-                    <div class="service-content">
-                        <h3 data-en="Emergency Services" data-so="Adeegyada Degdegga ah">Emergency Services</h3>
-                        <p data-en="Immediate medical attention for critical conditions and accidents." data-so="Daryeel caafimaad oo degdeg ah oo loogu talagalay xaaladaha halista ah iyo shilalka.">Immediate medical attention for critical conditions and accidents.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 3 -->
-                <div class="service-card reveal">
-                    <img src="https://image.pollinations.ai/prompt/photo%20of%20Somali%20mother%20and%20newborn%20baby%20in%20clean%20hospital%20maternity%20ward,%20realistic,%20high%20quality?width=600&height=400&nologo=true" alt="Maternal and Child Healthcare">
-                    <div class="service-content">
-                        <h3 data-en="Maternal & Child Care" data-so="Daryeelka Hooyada iyo Dhallaanka">Maternal & Child Care</h3>
-                        <p data-en="Prenatal, postnatal care, and pediatric services for the health of mothers and children." data-so="Daryeelka uurka, dhalmada kadib, iyo adeegyada carruurta ee caafimaadka hooyooyinka iyo carruurta.">Prenatal, postnatal care, and pediatric services for the health of mothers and children.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 4 -->
-                <div class="service-card reveal">
-                    <img src="https://image.pollinations.ai/prompt/photo%20of%20Somali%20lab%20technician%20working%20with%20microscope%20in%20modern%20hospital%20lab,%20realistic,%20high%20quality?width=600&height=400&nologo=true" alt="Laboratory Services">
-                    <div class="service-content">
-                        <h3 data-en="Laboratory Services" data-so="Adeegyada Shaybaadhka">Laboratory Services</h3>
-                        <p data-en="Accurate diagnostic testing to support effective medical treatment." data-so="Baaritaanno sax ah oo loogu talagalay in lagu taageero daaweyn caafimaad oo waxtar leh.">Accurate diagnostic testing to support effective medical treatment.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="service-card reveal">
-                    <img src="https://image.pollinations.ai/prompt/photo%20of%20Somali%20female%20doctor%20talking%20to%20patient%20hospital%20setting,%20realistic,%20high%20quality?width=600&height=400&nologo=true" alt="Medical Consultation">
-                    <div class="service-content">
-                        <h3 data-en="Medical Consultation" data-so="La-talinta Caafimaadka">Medical Consultation</h3>
-                        <p data-en="Professional medical advice and diagnosis from qualified healthcare providers." data-so="Talo caafimaad oo xirfad leh iyo baaritaan ka imanaya bixiyeyaasha daryeelka caafimaad ee aqoonta leh.">Professional medical advice and diagnosis from qualified healthcare providers.</p>
-                    </div>
-                </div>
-
-                <!-- Service Card 6 -->
-                <div class="service-card reveal">
-                    <img src="https://image.pollinations.ai/prompt/photo%20of%20Somali%20radiologist%20looking%20at%20xray%20screen%20in%20hospital,%20realistic,%20high%20quality?width=600&height=400&nologo=true" alt="Diagnostic Services">
-                    <div class="service-content">
-                        <h3 data-en="Diagnostic Services" data-so="Adeegyada Baaritaanka">Diagnostic Services</h3>
-                        <p data-en="Advanced imaging and diagnostic tools to accurately identify health issues." data-so="Qalab casri ah oo sawir qaadis iyo baaritaan loogu talagalay in si sax ah loo aqoonsado dhibaatooyinka caafimaad.">Advanced imaging and diagnostic tools to accurately identify health issues.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title" data-en="Why Choose Us" data-so="Maxaad Noo Dooranaysaa">Why Choose Us</h2>
-            </div>
-            <div class="features-grid">
-                <div class="feature-box reveal">
-                    <div class="feature-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-                    <h3 data-en="Patient-Centered Care" data-so="Daryeelka Bukaanka">Patient-Centered Care</h3>
-                    <p data-en="We prioritize the comfort and well-being of every patient." data-so="Waxaan mudnaanta siinnaa raaxada iyo fayoqabka bukaan kasta.">We prioritize the comfort and well-being of every patient.</p>
-                </div>
-                <div class="feature-box reveal">
-                    <div class="feature-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                    <h3 data-en="Accessibility" data-so="Helitaanka">Accessibility</h3>
-                    <p data-en="Conveniently located in Goldogob to serve the local community." data-so="Si ku habboon ugu yaal Goldogob si loogu adeego bulshada maxalliga ah.">Conveniently located in Goldogob to serve the local community.</p>
-                </div>
-                <div class="feature-box reveal">
-                    <div class="feature-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
-                    <h3 data-en="Community Health" data-so="Caafimaadka Bulshada">Community Health</h3>
-                    <p data-en="Dedicated to improving the overall health and awareness of our society." data-so="U heellan hagaajinta caafimaadka guud iyo wacyigelinta bulshadeena.">Dedicated to improving the overall health and awareness of our society.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Medical Team Section -->
-    <section id="team" class="section bg-light">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2 class="section-title" data-en="Our Medical Team" data-so="Kooxda Caafimaadka">Our Medical Team</h2>
-                <p data-en="Dedicated professionals ready to serve you. (Staff profiles coming soon)." data-so="Xirfadlayaal u heellan inay kuu adeegaan. (Astaamaha shaqaalaha ayaa dhawaan iman doona).">Dedicated professionals ready to serve you. (Staff profiles coming soon).</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card reveal">
-                    <div class="team-img-placeholder"><i class="fa-solid fa-user-doctor"></i></div>
-                    <h3 data-en="Medical Director" data-so="Agaasimaha Caafimaadka">Medical Director</h3>
-                    <p data-en="Profile coming soon" data-so="Astaamaha dhawaan">Profile coming soon</p>
-                </div>
-                <div class="team-card reveal">
-                    <div class="team-img-placeholder"><i class="fa-solid fa-user-nurse"></i></div>
-                    <h3 data-en="Head Nurse" data-so="Kalkaalisada Madaxa">Head Nurse</h3>
-                    <p data-en="Profile coming soon" data-so="Astaamaha dhawaan">Profile coming soon</p>
-                </div>
-                <div class="team-card reveal">
-                    <div class="team-img-placeholder"><i class="fa-solid fa-stethoscope"></i></div>
-                    <h3 data-en="General Practitioner" data-so="Dhakhtarka Guud">General Practitioner</h3>
-                    <p data-en="Profile coming soon" data-so="Astaamaha dhawaan">Profile coming soon</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container contact-container">
-            <div class="contact-info reveal">
-                <h2 class="section-title text-left" data-en="Contact Us" data-so="Nala Soo Xiriir">Contact Us</h2>
-                <p data-en="For inquiries, appointments, or emergencies, please reach out to us." data-so="Wixii su'aalo, ballamo, ama xaalado degdeg ah, fadlan nala soo xiriir.">For inquiries, appointments, or emergencies, please reach out to us.</p>
-                
-                <div class="info-item">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <div>
-                        <h4 data-en="Location" data-so="Goobta">Location</h4>
-                        <p>22FC+3XF, Goldogob, Somalia</p>
-                        <a href="https://maps.google.com/?q=22FC%2B3XF,+Goldogob,+Somalia" target="_blank" class="map-link" data-en="Get Directions" data-so="Hel Tilmaamaha">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-solid fa-phone"></i>
-                    <div>
-                        <h4 data-en="Phone" data-so="Taleefanka">Phone</h4>
-                        <p><a href="tel:+252907791150">+252 90 779 1150</a></p>
-                    </div>
-                </div>
-
-                <div class="info-item">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <div>
-                        <h4 data-en="WhatsApp" data-so="WhatsApp">WhatsApp</h4>
-                        <p><a href="https://wa.me/252907791150" target="_blank">+252 90 779 1150</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="contact-form-wrapper reveal">
-                <form id="whatsapp-form">
-                    <h3 data-en="Send us a message" data-so="Noo soo dir fariin">Send us a message</h3>
-                    <div class="form-group">
-                        <label for="name" data-en="Your Name" data-so="Magacaaga">Your Name</label>
-                        <input type="text" id="name" required placeholder="John Doe">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" data-en="Phone Number" data-so="Lambarka Taleefanka">Phone Number</label>
-                        <input type="tel" id="phone" required placeholder="+252...">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" data-en="Message" data-so="Fariinta">Message</label>
-                        <textarea id="message" rows="4" required placeholder="How can we help you?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block" data-en="Send via WhatsApp" data-so="Ku Dir WhatsApp">Send via WhatsApp</button>
-                    <p class="form-disclaimer" data-en="Note: This will open WhatsApp to send your message. It does not automatically book an appointment." data-so="Ogeysiis: Tani waxay furi doontaa WhatsApp si ay u dirto fariintaada. Si otomaatig ah uma ballansato ballan.">Note: This will open WhatsApp to send your message. It does not automatically book an appointment.</p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/252907791150" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
+    <a href="#home" class="brand" aria-label="Galdogob General Hospital — Bogga Hore">
+      <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="Astaanta GG">
+        <circle cx="32" cy="27" r="25" fill="#C8102E"/>
+        <circle cx="32" cy="27" r="25" fill="none" stroke="#9E0C24" stroke-width="1.5" opacity=".5"/>
+        <text x="32" y="27" text-anchor="middle" dominant-baseline="central"
+              font-family="'Plus Jakarta Sans', Arial, sans-serif"
+              font-size="21" font-weight="800" fill="#FFFFFF" letter-spacing="-1">GG</text>
+        <rect x="16" y="55" width="32" height="5" rx="2.5" fill="#12A05F"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">Galdogob</span>
+        <span class="brand-sub">General Hospital</span>
+      </span>
     </a>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <div class="logo">
-                    <img src="logo.png" alt="Galdogob General Hospital Logo" class="brand-logo" style="background: white; padding: 5px; border-radius: 8px;">
-                    <div class="logo-text text-white">
-                        <h1>Galdogob General</h1>
-                        <span>Hospital</span>
-                    </div>
-                </div>
-                <p data-en="Your Health, Our Priority." data-so="Caafimaadkaaga waa mudnaantayada.">Your Health, Our Priority.</p>
-            </div>
-            
-            <div class="footer-links">
-                <h4 data-en="Quick Links" data-so="Xiriiriyeyaasha Degdegga ah">Quick Links</h4>
-                <a href="#home" data-en="Home" data-so="Bogga Hore">Home</a>
-                <a href="#about" data-en="About Us" data-so="Nagu Saabsan">About Us</a>
-                <a href="#services" data-en="Services" data-so="Adeegyada">Services</a>
-                <a href="#contact" data-en="Contact" data-so="Nala Soo Xiriir">Contact</a>
-            </div>
+    <nav class="nav-links" aria-label="Navigation-ka ugu weyn">
+      <a href="#home" class="active">Bogga Hore</a>
+      <a href="#about">Ku Saabsan</a>
+      <a href="#services">Adeegyada</a>
+      <a href="#doctors">Dhakhaatiirta</a>
+      <a href="#news">Wararka</a>
+      <a href="#gallery">Sawirada</a>
+      <a href="#contact">Xiriir</a>
+    </nav>
 
-            <div class="footer-contact">
-                <h4 data-en="Contact Info" data-so="Macluumaadka Xiriirka">Contact Info</h4>
-                <p><i class="fa-solid fa-location-dot"></i> 22FC+3XF, Goldogob, Somalia</p>
-                <p><i class="fa-solid fa-phone"></i> +252 90 779 1150</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> Galdogob General Hospital. <span data-en="All rights reserved." data-so="Dhammaan xuquuqda way dhowran yihiin.">All rights reserved.</span></p>
-        </div>
-    </footer>
+    <div class="nav-actions">
+      <a href="tel:+252907791150" class="icon-btn call" aria-label="Wac telefoonka">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+        </svg>
+      </a>
+      <a href="#contact" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+        </svg>
+        Ballan Qaado
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Fur menu-ga" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
 
-    <script src="script.js"></script>
+<!-- ================= MOBILE MENU ================= -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <nav aria-label="Navigation-ka mobilka">
+    <a href="#home">Bogga Hore</a>
+    <a href="#about">Ku Saabsan</a>
+    <a href="#services">Adeegyada</a>
+    <a href="#doctors">Dhakhaatiirta</a>
+    <a href="#news">Wararka</a>
+    <a href="#gallery">Sawirada</a>
+    <a href="#contact">Xiriir</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a href="tel:+252907791150" class="mm-contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+      </svg>
+      +252 90 779 1150
+    </a>
+    <a href="#contact" class="btn btn-primary btn-block">Ballan Qaado</a>
+    <a href="https://wa.me/252907791150?text=Salaam%2C%20waxaan%20rabaa%20in%20aan%20ballan%20qaato%20isbitaalka."
+       target="_blank" rel="noopener" class="btn btn-green btn-block">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.69 8.21-8.24 8.21Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<main>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-copy">
+      <span class="pill" data-reveal><span class="dot"></span> Isbitaal Guud · Galdogob, Soomaaliya</span>
+
+      <h1 data-reveal>
+        Daryeelka bulshada,<br>
+        <span class="accent">caafimaadka mustaqbalka.</span>
+      </h1>
+
+      <p data-reveal>
+        Galdogob General Hospital waxay u heellan tahay inay bulshada Galdogob iyo deegaanka
+        ku wareegsan siiso daryeel caafimaad oo lagu kalsoonaan karo — iyada oo diiradda
+        saaraysa ixtiraamka bukaanka, naxariista iyo tayooyinka caafimaad.
+      </p>
+
+      <div class="hero-actions" data-reveal>
+        <a href="#contact" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+          Ballan Qaado
+        </a>
+        <a href="#services" class="btn btn-outline">
+          Adeegyada Eeg
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+      </div>
+
+      <ul class="hero-features" data-reveal>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Daryeel ku salaysan bulshada</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Koox caafimaad oo diyaar u ah</li>
+        <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span> Ballan si fudud loo qaato</li>
+      </ul>
+    </div>
+
+    <div class="hero-media" data-reveal>
+      <div class="hero-frame" id="heroFrame">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1000&q=80"
+             alt="Qolka daryeelka ee isbitaalka" loading="eager" />
+      </div>
+
+      <div class="hero-badge hb-1">
+        <span class="hb-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l8.42 8.42 8.42-8.42a5.4 5.4 0 0 0 0-7.65Z"/>
+          </svg>
+        </span>
+        <span>
+          <strong>Daryeel Bulsho</strong>
+          <small>Galdogob, Mudug</small>
+        </span>
+      </div>
+
+      <div class="hero-badge hb-2">
+        <span class="hb-ico">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+        </span>
+        <span>
+          <strong>Ballan Fudud</strong>
+          <small>WhatsApp / Telefoon</small>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= QUICK ACTIONS ================= -->
+<div class="quick-wrap">
+  <div class="container">
+    <div class="quick-card" data-reveal-group>
+
+      <a href="#contact" class="quick-item">
+        <span class="qi-ico qi-red">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>
+          </svg>
+        </span>
+        <span>
+          <strong>Ballan Qaado</strong>
+          <span>Buuxi foomka ballanta</span>
+        </span>
+        <span class="qi-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </span>
+      </a>
+
+      <a href="tel:+252907791150" class="quick-item">
+        <span class="qi-ico qi-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+        </span>
+        <span>
+          <strong>Wac Hadda</strong>
+          <span>+252 90 779 1150</span>
+        </span>
+        <span class="qi-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </span>
+      </a>
+
+      <a href="https://wa.me/252907791150?text=Salaam%2C%20waxaan%20rabaa%20in%20aan%20ballan%20qaato%20isbitaalka."
+         target="_blank" rel="noopener" class="quick-item">
+        <span class="qi-ico qi-dark">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.69 8.21-8.24 8.21Z"/>
+          </svg>
+        </span>
+        <span>
+          <strong>WhatsApp</strong>
+          <span>Fariin toos ah u dir</span>
+        </span>
+        <span class="qi-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-media" data-reveal>
+        <div class="about-frame" id="aboutFrame">
+          <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=900&q=80"
+               alt="Koox caafimaad oo ku hawlan daryeelka bukaanka" loading="lazy" />
+        </div>
+        <div class="about-tag">
+          <span class="at-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s-7-4.4-7-10a7 7 0 0 1 14 0c0 5.6-7 10-7 10Z"/><circle cx="12" cy="11" r="2.6"/>
+            </svg>
+          </span>
+          <span>
+            <strong>Galdogob, Mudug</strong>
+            <small>Soomaaliya</small>
+          </span>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <div class="section-head" style="margin-bottom:18px" data-reveal>
+          <span class="eyebrow">Ku Saabsan</span>
+          <h2>Isbitaal loo dhisay bulshada.</h2>
+          <p>
+            Galdogob General Hospital waa isbitaal guud oo u adeega bulshada Galdogob iyo
+            deegaannada ku hareeraysan. Hadafkeennu waa in aan daryeel caafimaad oo lagu
+            kalsoonaan karo ka dhigto mid u dhow, mid fudud in la helo, oo ku dhisan ixtiraam
+            iyo naxariis.
+          </p>
+        </div>
+
+        <div class="about-facts" data-reveal-group>
+          <div class="fact">
+            <div class="f-val">—</div>
+            <div class="f-label">Sannadihii Aasaaska</div>
+          </div>
+          <div class="fact">
+            <div class="f-val">—</div>
+            <div class="f-label">Tirada Sariiraha</div>
+          </div>
+          <div class="fact">
+            <div class="f-val">—</div>
+            <div class="f-label">Dhakhaatiirta</div>
+          </div>
+          <div class="fact">
+            <div class="f-val">—</div>
+            <div class="f-label">Qaybaha Adeegga</div>
+          </div>
+        </div>
+
+        <div class="note" data-reveal>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/>
+          </svg>
+          <span>
+            Xogta tirakoobka ah ee aan wali la xaqiijin waxaa lagu muujiyay calaamadda “—”.
+            Waxaa la cusboonaysiin doonaa marka xogta rasmiga ah laga helo maamulka isbitaalka.
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Adeegyada</span>
+      <h2>Adeegyo caafimaad oo dhamaystiran</h2>
+      <p>
+        Qaybaha hoose waxay muujinayaan noocyada adeeg ee isbitaal guud uu bixiyo.
+        Faahfaahinta iyo helitaanka adeeg kasta waxaa la xaqiijin doonaa maamulka isbitaalka.
+      </p>
+    </div>
+
+    <div class="services-grid" data-reveal-group>
+
+      <article class="service-card">
+        <span class="service-ico" style="background:var(--green-soft);color:var(--green)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.8 2.3A.3.3 0 1 0 5 2.7a6.2 6.2 0 0 0 12.4 0 .3.3 0 1 0 .2-.4"/>
+            <circle cx="18" cy="15" r="3"/><path d="M10.4 12.6a3 3 0 0 1-3.9-3.9"/>
+          </svg>
+        </span>
+        <h3>Daryeel Guud</h3>
+        <p>Baaritaan iyo daaweyn guud oo loogu talagalay shaqsiyaadka iyo qoysaska.</p>
+        <span class="svc-tag"><span class="d"></span> La xaqiijinayo</span>
+      </article>
+
+      <article class="service-card">
+        <span class="service-ico" style="background:var(--red-soft);color:var(--red)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>
+            <path d="M3.5 12h4l2-3.5 2.5 7 2-3.5h4.5"/>
+          </svg>
+        </span>
+        <h3>Daryeel Carruur</h3>
+        <p>Daryeel caafimaad oo loogu talagalay carruurta iyo koritaankooda.</p>
+        <span class="svc-tag"><span class="d"></span> La xaqiijinayo</span>
+      </article>
+
+      <article class="service-card">
+        <span class="service-ico" style="background:var(--green-soft);color:var(--green-dark)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4.2"/><path d="M12 12.2V21M8.5 17.5h7"/>
+          </svg>
+        </span>
+        <h3>Daryeel Haweeneed</h3>
+        <p>Adeegyo caafimaad oo ku wajahan haweenka iyo hooyada.</p>
+        <span class="svc-tag"><span class="d"></span> La xaqiijinayo</span>
+      </article>
+
+      <article class="service-card">
+        <span class="service-ico" style="background:var(--red-soft);color:var(--red-dark)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3h6M10 3v5.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 8.5V3"/>
+            <path d="M7.5 14h9"/>
+          </svg>
+        </span>
+        <h3>Shaybaadhka</h3>
+        <p>Baaritaanno shaybaadh oo lagama maarmaan u ah ogaanshaha iyo daaweynta.</p>
+        <span class="svc-tag"><span class="d"></span> La xaqiijinayo</span>
+      </article>
+
+      <article class="service-card">
+        <span class="service-ico" style="background:var(--green-soft);color:var(--green)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/>
+            <path d="M8.5 8.5 15.5 15.5"/>
+          </svg>
+        </span>
+        <h3>Farmashi</h3>
+        <p>Bixinta dawooyinka iyo hagidda isticmaalka daawada si ammaan ah.</p>
+        <span class="svc-tag"><span class="d"></span> La xaqiijinayo</span>
+      </article>
+
+      <article class="service-card">
+        <span class="service-ico" style="background:var(--red-soft);color:var(--red)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18"/>
+            <circle cx="12" cy="12" r="9.2"/>
+          </svg>
+        </span>
+        <h3>Gurmad Degdeg ah</h3>
+        <p>Jawaab degdeg ah oo loogu talagalay xaaladaha caafimaad ee degdegga ah.</p>
+        <span class="svc-tag"><span class="d"></span> La xaqiijinayo</span>
+      </article>
+
+    </div>
+
+    <div class="note" style="margin-top:24px;max-width:720px" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/>
+      </svg>
+      <span>
+        Ogeysiis: Liiska adeegyada waa ku-meel-gaar. Faahfaahinta, jadwalka iyo helitaanka
+        adeeg kasta waxaa si rasmi ah u xaqiijin doona maamulka Galdogob General Hospital.
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= DOCTORS ================= -->
+<section class="section doctors" id="doctors">
+  <div class="container">
+
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Dhakhaatiirta</span>
+      <h2>Kooxda caafimaad</h2>
+      <p>
+        Shahaadada dhakhaatiirta iyo takhasusyadooda wali lama xaqiijin. Macluumaadka
+        rasmiga ah waxaa lagu dari doonaa marka la helo oggolaanshaha maamulka.
+      </p>
+    </div>
+
+    <div class="doctors-grid" data-reveal-group>
+
+      <article class="doctor-card">
+        <div class="doc-avatar">—</div>
+        <h3>[Magaca Dhakhtarka]</h3>
+        <span class="doc-role">[Takhasuska]</span>
+        <span class="doc-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          La xaqiijinayo
+        </span>
+      </article>
+
+      <article class="doctor-card">
+        <div class="doc-avatar">—</div>
+        <h3>[Magaca Dhakhtarka]</h3>
+        <span class="doc-role">[Takhasuska]</span>
+        <span class="doc-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          La xaqiijinayo
+        </span>
+      </article>
+
+      <article class="doctor-card">
+        <div class="doc-avatar">—</div>
+        <h3>[Magaca Dhakhtarka]</h3>
+        <span class="doc-role">[Takhasuska]</span>
+        <span class="doc-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          La xaqiijinayo
+        </span>
+      </article>
+
+      <article class="doctor-card">
+        <div class="doc-avatar">—</div>
+        <h3>[Magaca Dhakhtarka]</h3>
+        <span class="doc-role">[Takhasuska]</span>
+        <span class="doc-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          La xaqiijinayo
+        </span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section class="section" id="news">
+  <div class="container">
+
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Wararka</span>
+      <h2>Wararka iyo ogeysiisyada</h2>
+      <p>Cinwaannada iyo faahfaahinta wararka wali lama xaqiijin — waxaa lagu muujiyay meelo bannaan.</p>
+    </div>
+
+    <div class="news-grid" data-reveal-group>
+
+      <article class="news-card">
+        <div class="news-thumb">
+          <span class="news-date">[Taariikh]</span>
+          <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+               alt="War qoraal" loading="lazy" />
+        </div>
+        <div class="news-body">
+          <span class="news-cat">Ogeysiis</span>
+          <h3>[Cinwaanka Warbixinta]</h3>
+          <p>[Faahfaahinta warqadda — xogta wali lama xaqiijin.]</p>
+          <a href="#news" class="news-link">
+            Akhri wax dheeraad ah
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-thumb">
+          <span class="news-date">[Taariikh]</span>
+          <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=800&q=80"
+               alt="War qoraal" loading="lazy" />
+        </div>
+        <div class="news-body">
+          <span class="news-cat">Bulsho</span>
+          <h3>[Cinwaanka Warbixinta]</h3>
+          <p>[Faahfaahinta warqadda — xogta wali lama xaqiijin.]</p>
+          <a href="#news" class="news-link">
+            Akhri wax dheeraad ah
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-thumb">
+          <span class="news-date">[Taariikh]</span>
+          <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80"
+               alt="War qoraal" loading="lazy" />
+        </div>
+        <div class="news-body">
+          <span class="news-cat">Caafimaad</span>
+          <h3>[Cinwaanka Warbixinta]</h3>
+          <p>[Faahfaahinta warqadda — xogta wali lama xaqiijin.]</p>
+          <a href="#news" class="news-link">
+            Akhri wax dheeraad ah
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="section gallery" id="gallery">
+  <div class="container">
+
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Sawirada</span>
+      <h2>Muuqaalka isbitaalka</h2>
+      <p>Sawirada hoose waa ku-meel-gaar. Sawirada rasmiga ah ee isbitaalka waa lagu beddeli doonaa.</p>
+    </div>
+
+    <div class="gallery-grid" data-reveal-group>
+
+      <figure class="g-item tall" data-lightbox="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1400&q=85">
+        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=80" alt="Sawir isbitaal 1" loading="lazy" />
+        <figcaption class="g-cap">Sawir — [Faahfaahin]</figcaption>
+      </figure>
+
+      <figure class="g-item" data-lightbox="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" alt="Sawir isbitaal 2" loading="lazy" />
+        <figcaption class="g-cap">Sawir — [Faahfaahin]</figcaption>
+      </figure>
+
+      <figure class="g-item" data-lightbox="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1400&q=85">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=700&q=80" alt="Sawir isbitaal 3" loading="lazy" />
+        <figcaption class="g-cap">Sawir — [Faahfaahin]</figcaption>
+      </figure>
+
+      <figure class="g-item tall" data-lightbox="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1400&q=85">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Sawir isbitaal 4" loading="lazy" />
+        <figcaption class="g-cap">Sawir — [Faahfaahin]</figcaption>
+      </figure>
+
+      <figure class="g-item" data-lightbox="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1400&q=85">
+        <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=700&q=80" alt="Sawir isbitaal 5" loading="lazy" />
+        <figcaption class="g-cap">Sawir — [Faahfaahin]</figcaption>
+      </figure>
+
+      <figure class="g-item" data-lightbox="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1400&q=85">
+        <img src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=700&q=80" alt="Sawir isbitaal 6" loading="lazy" />
+        <figcaption class="g-cap">Sawir — [Faahfaahin]</figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="container">
+
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Xiriir</span>
+      <h2>Nala soo xiriir ama ballan qaado</h2>
+      <p>Buuxi foomka ballanta ama nala soo xiriir telefoon iyo WhatsApp.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="form-card" data-reveal>
+        <h3>Foomka Ballanta</h3>
+        <p>Foomkani waa codsi — ballanta waxaa si rasmi ah lagu xaqiijin doonaa telefoon ahaan.</p>
+
+        <form id="appointmentForm" novalidate>
+          <div class="form-row two">
+            <div class="field">
+              <label for="name">Magaca oo buuxa <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Tusaale: Cabdi Cali" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="phone">Lambarka telefoonka <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+252 6X XXX XXXX" required autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form-row two">
+            <div class="field">
+              <label for="service">Adeegga / Qaybta</label>
+              <select id="service" name="service">
+                <option value="">Dooro qayb</option>
+                <option>Daryeel Guud</option>
+                <option>Daryeel Carruur</option>
+                <option>Daryeel Haweeneed</option>
+                <option>Shaybaadh</option>
+                <option>Farmashi</option>
+                <option>Mid kale</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="date">Taariikhda la rabo</label>
+              <input type="date" id="date" name="date" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Fariin dheeraad ah</label>
+            <textarea id="message" name="message" placeholder="Faahfaahi xaaladda ama codsigaaga..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/>
+            </svg>
+            Dir Codsi Ballan
+          </button>
+
+          <div class="form-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span>Xogtaada waa sir. Foomkani hadda kuma xirna nidaam rasmi ah — waxaa lagu xaqiijin doonaa telefoon ahaan.</span>
+          </div>
+        </form>
+      </div>
+
+      <!-- INFO -->
+      <aside class="info-card" data-reveal>
+        <h3>Macluumaadka Xiriirka</h3>
+        <p>Waxaan ku faraxsanahay inaan kaa caawino. Nala soo xiriir wakhti kasta.</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <span class="ii-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <div>
+              <small>Cinwaanka</small>
+              <strong>Galdogob, Gobolka Mudug, Soomaaliya</strong>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="ii-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+              </svg>
+            </span>
+            <div>
+              <small>Telefoon</small>
+              <strong><a href="tel:+252907791150">+252 90 779 1150</a></strong>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="ii-ico">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Z"/>
+              </svg>
+            </span>
+            <div>
+              <small>WhatsApp</small>
+              <strong><a href="https://wa.me/252907791150" target="_blank" rel="noopener">+252 90 779 1150</a></strong>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <span class="ii-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+              </svg>
+            </span>
+            <div>
+              <small>Saacadaha Shaqada</small>
+              <strong>— (La xaqiijin doonaa)</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-actions">
+          <a href="https://wa.me/252907791150?text=Salaam%2C%20waxaan%20rabaa%20in%20aan%20ballan%20qaato%20isbitaalka."
+             target="_blank" rel="noopener" class="btn btn-white">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
+            WhatsApp ku qor
+          </a>
+          <a href="tel:+252907791150" class="btn btn-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+            </svg>
+            Wac Hadda
+          </a>
+        </div>
+      </aside>
+
+    </div>
+
+    <!-- MAP -->
+    <div class="map-wrap" data-reveal>
+      <iframe
+        src="https://www.google.com/maps?q=Galdogob,+Mudug,+Somalia&output=embed"
+        title="Khariidadda Galdogob General Hospital"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a href="#home" class="brand" aria-label="Galdogob General Hospital">
+          <svg class="logo-mark" viewBox="0 0 64 64" role="img" aria-label="Astaanta GG">
+            <circle cx="32" cy="27" r="25" fill="#C8102E"/>
+            <text x="32" y="27" text-anchor="middle" dominant-baseline="central"
+                  font-family="'Plus Jakarta Sans', Arial, sans-serif"
+                  font-size="21" font-weight="800" fill="#FFFFFF" letter-spacing="-1">GG</text>
+            <rect x="16" y="55" width="32" height="5" rx="2.5" fill="#12A05F"/>
+          </svg>
+          <span class="brand-text">
+            <span class="brand-name">Galdogob</span>
+            <span class="brand-sub">General Hospital</span>
+          </span>
+        </a>
+        <p>Daryeelka bulshada, caafimaadka mustaqbalka. Isbitaal guud oo u adeega bulshada Galdogob iyo deegaanka.</p>
+
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook" title="Facebook — [La xaqiijinayo]">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)" title="X — [La xaqiijinayo]">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1L4.7 21H1.5l7.5-8.6L1.2 3h6.6l4.5 5.6L17.5 3Zm-1.1 16.1h1.8L7.7 4.8H5.8l10.6 14.3Z"/></svg>
+          </a>
+          <a href="https://wa.me/252907791150" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Degelada</h4>
+        <ul>
+          <li><a href="#home">Bogga Hore</a></li>
+          <li><a href="#about">Ku Saabsan</a></li>
+          <li><a href="#services">Adeegyada</a></li>
+          <li><a href="#doctors">Dhakhaatiirta</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Macluumaad</h4>
+        <ul>
+          <li><a href="#news">Wararka</a></li>
+          <li><a href="#gallery">Sawirada</a></li>
+          <li><a href="#contact">Xiriir</a></li>
+          <li><a href="#contact">Ballan Qaado</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Nala Soo Xiriir</h4>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Galdogob, Mudug, Soomaaliya</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+            </svg>
+            <a href="tel:+252907791150">+252 90 779 1150</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+            </svg>
+            <span>Saacadaha: — (La xaqiijin doonaa)</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2025</span> Galdogob General Hospital. Xuquuqda oo dhan way dhowran tahay.</span>
+      <div class="fb-links">
+        <a href="#home">Bogga Hore</a>
+        <a href="#contact">Xiriir</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= FLOATING ACTIONS ================= -->
+<div class="float-actions">
+  <a href="https://wa.me/252907791150?text=Salaam%2C%20waxaan%20rabaa%20in%20aan%20ballan%20qaato%20isbitaalka."
+     target="_blank" rel="noopener" class="fab fab-wa" aria-label="WhatsApp — fariin noo soo dir">
+    <span class="fab-label">WhatsApp</span>
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.13a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.41a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.69 8.21-8.24 8.21Z"/>
+    </svg>
+  </a>
+
+  <a href="tel:+252907791150" class="fab fab-call" aria-label="Wac telefoonka">
+    <span class="fab-label">Wac +252 90 779 1150</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Sawirka oo weyn">
+  <img src="" alt="Sawirka isbitaalka oo weyn" />
+</div>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="t-ico">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+  </span>
+  <span id="toastText">Codsigaaga waa la diray.</span>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- 1. Sannadka footer ---------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- 2. Header scroll ---------- */
+  var header = document.getElementById('header');
+  var onScroll = function(){
+    if (window.scrollY > 12) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ---------- 3. Mobile menu ---------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  function closeMenu(){
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden','true');
+    document.body.classList.remove('locked');
+  }
+  function openMenu(){
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded','true');
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden','false');
+    document.body.classList.add('locked');
+  }
+
+  hamburger.addEventListener('click', function(){
+    if (mobileMenu.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      closeMenu();
+      lightbox.classList.remove('open');
+      document.body.classList.remove('locked');
+    }
+  });
+
+  /* ---------- 4. Reveal on scroll ---------- */
+  var io = null;
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
+
+    document.querySelectorAll('[data-reveal-group]').forEach(function(group){
+      Array.prototype.forEach.call(group.children, function(child, i){
+        child.setAttribute('data-reveal','');
+        child.style.transitionDelay = Math.min(i * 75, 380) + 'ms';
+        io.observe(child);
+      });
+    });
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- 5. Active nav link ---------- */
+  var sections = document.querySelectorAll('section[id]');
+  var navLinks = document.querySelectorAll('.nav-links a');
+
+  if ('IntersectionObserver' in window && navLinks.length) {
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (!entry.isIntersecting) return;
+        var id = entry.target.getAttribute('id');
+        navLinks.forEach(function(link){
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+
+  /* ---------- 6. Image fallback (haddii sawirku soo dhici waayo) ---------- */
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){
+      var wrap = img.parentElement;
+      if (wrap) wrap.classList.add('no-img');
+      img.style.display = 'none';
+    });
+  });
+
+  /* ---------- 7. Lightbox ---------- */
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = lightbox.querySelector('img');
+
+  document.querySelectorAll('[data-lightbox]').forEach(function(item){
+    item.addEventListener('click', function(){
+      var src = item.getAttribute('data-lightbox');
+      if (!src) return;
+      lightboxImg.src = src;
+      lightbox.classList.add('open');
+      document.body.classList.add('locked');
+    });
+  });
+
+  lightbox.addEventListener('click', function(){
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+    document.body.classList.remove('locked');
+  });
+
+  /* ---------- 8. Form ---------- */
+  var form = document.getElementById('appointmentForm');
+  var toast = document.getElementById('toast');
+  var toastText = document.getElementById('toastText');
+  var toastTimer;
+
+  function showToast(msg){
+    toastText.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 4800);
+  }
+
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var name = document.getElementById('name');
+      var phone = document.getElementById('phone');
+      var ok = true;
+
+      [name, phone].forEach(function(field){
+        if (!field.value.trim()) {
+          field.style.borderColor = 'var(--red)';
+          field.style.boxShadow = '0 0 0 4px rgba(200,16,46,.10)';
+          ok = false;
+        } else {
+          field.style.borderColor = '';
+          field.style.boxShadow = '';
+        }
+      });
+
+      if (!ok) {
+        showToast('Fadlan buuxi magaca iyo lambarka telefoonka.');
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      var original = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Waa la dirayaa...';
+
+      setTimeout(function(){
+        btn.disabled = false;
+        btn.innerHTML = original;
+        form.reset();
+        showToast('Mahadsanid! Codsigaaga waa la helay — waan kula soo xiriiri doonaa.');
+      }, 900);
+    });
+
+    ['name','phone'].forEach(function(id){
+      var el = document.getElementById(id);
+      el.addEventListener('input', function(){
+        if (el.value.trim()) {
+          el.style.borderColor = '';
+          el.style.boxShadow = '';
+        }
+      });
+    });
+  }
+
+  /* ---------- 9. Smooth anchor scroll (fallback) ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var href = link.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      var target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+})();
+</script>
 </body>
 </html>
